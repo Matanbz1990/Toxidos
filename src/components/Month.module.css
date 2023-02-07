@@ -1,0 +1,36 @@
+.monthContainer {
+  /* display: flex; */
+  border: solid 1px;
+  border-color: rgb(240, 201, 76);
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  background-color: rgb(0, 0, 0);
+  width: 60%;
+  margin-left: 20rem;
+}
+.nameOfMonth {
+  width: 20%;
+  /* border: solid; */
+  border-radius: 10px;
+  padding: 5px;
+  background: rgb(240, 201, 76);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  /* margin-bottom: 10px; */
+  margin: 10px auto;
+}
+.nameOfMonth:hover {
+  background: rgb(0, 0, 0);
+  color: rgb(240, 201, 76);
+  transition-duration: 0.4s;
+  border: solid;
+  border-width: 1px;
+  cursor: pointer;
+}
+.displayEvents {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+}

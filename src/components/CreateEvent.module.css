@@ -1,0 +1,172 @@
+.container {
+  display: flex;
+  /* flex-flow: row nowrap; */
+  justify-content: space-between;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 5px; */
+  margin: 10px;
+}
+.container .column1 .wrap input {
+  width: 20rem;
+  height: 25px;
+  border-radius: 10px;
+  border: solid 1px;
+  flex-grow: 1;
+}
+
+form .container .column1 .wrap label {
+  color: rgb(240, 201, 76);
+}
+form .container .column2 .wrap label {
+  color: rgb(240, 201, 76);
+}
+
+.container .column2 .wrap input {
+  width: 10rem;
+  height: 25px;
+  border-radius: 10px;
+  border: solid 1px;
+  flex-grow: 1;
+  /* font-size: small; */
+}
+
+.container label {
+  flex: 0 1 100%;
+  padding: 0 1rem;
+  color: black;
+}
+
+.container input {
+  flex: 0 0 33.33333%;
+  max-width: 50%;
+}
+h2 {
+  text-align: center;
+}
+
+form.createEvent {
+  position: relative;
+  width: 70rem;
+  margin: 30px auto 20px auto;
+  background: rgb(12, 11, 8);
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-3.png");
+
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+form.createEvent input,
+form.createEvent textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+form.createEvent button {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  background: rgb(0, 0, 0);
+  color: rgb(240, 201, 76);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+  transition-duration: 0.4s;
+}
+form.createEvent button:hover {
+  background: rgb(240, 201, 76);
+  color: rgb(0, 0, 0);
+  border: solid;
+  border-width: 1px;
+  cursor: pointer;
+}
+.x:hover {
+  color: rgb(240, 201, 76);
+  cursor: pointer;
+}
+label {
+}
+.containerRadio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.containerRadio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.containerRadio:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.containerRadio input:checked ~ .checkmark {
+  background-color: #d3b613;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.containerRadio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.containerRadio .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+button:disabled {
+  /* cursor: not-allowed; */
+  background-color: rgb(219, 217, 209);
+  color: white;
+  cursor: alias;
+
+  border-color: rgb(0, 0, 0);
+}

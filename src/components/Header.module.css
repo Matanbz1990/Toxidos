@@ -1,0 +1,82 @@
+h1 {
+  /* text-align: center; */
+}
+header {
+  background-color: rgb(0, 0, 0);
+  margin: auto -16px;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  transition-duration: 0.4s;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+.text {
+}
+header h1 {
+  color: rgb(240, 201, 76);
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+  transition-duration: 0.4s;
+  margin-top: 0;
+}
+/* header:hover,
+h1:hover {
+  background-color: rgb(240, 201, 76);
+  color: rgb(0, 0, 0);
+} */
+
+img {
+  height: 70px;
+  width: 70px;
+  border-radius: 100px;
+}
+.container3 label {
+  color: rgb(240, 201, 76);
+}
+.container2 {
+  display: flex;
+
+  align-items: center;
+}
+.container3 input {
+  margin: 0 10px;
+}
+.container3 button {
+  border-radius: 20px;
+  height: 40px;
+  width: 100px;
+  font-size: medium;
+  background-color: rgb(0, 0, 0);
+  color: rgb(240, 201, 76);
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container3 button:hover {
+  background-color: rgb(240, 201, 76);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+.container3 input {
+  width: 10rem;
+  height: 25px;
+  border-radius: 10px;
+  border: solid 1px;
+  font-size: 1.2em;
+  font-family: inherit;
+  padding: 10px;
+}
+.container4 {
+  display: flex;
+}
+.container3 h3 {
+  color: rgb(240, 201, 76);
+}
+.container3 {
+  display: flex;
+  align-items: center;
+}
+.container3 h4 {
+  color: rgb(240, 201, 76);
+}

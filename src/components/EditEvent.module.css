@@ -1,0 +1,93 @@
+.container {
+  display: flex;
+  /* flex-flow: row nowrap; */
+  justify-content: space-between;
+}
+
+.wrap {
+  display: flex;
+  /* justify-content: space-between; */
+  /* gap: 5px; */
+  margin: 10px;
+}
+form input {
+  width: 50rem;
+  height: 20px;
+  border-radius: 10px;
+  border: solid;
+  flex-grow: 1;
+  font-size: small;
+}
+h3 {
+  text-align: center;
+}
+
+.container label {
+  flex: 0 1 100%;
+  padding: 0 1rem;
+}
+
+.container input {
+  flex: 0 0 33.33333%;
+  max-width: 50%;
+}
+h2 {
+  text-align: center;
+}
+
+form.editEvent {
+  position: relative;
+  width: 60rem;
+  margin: 30px auto 20px auto;
+  background: rgba(255, 255, 255, 0.63);
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+  color: rgb(240, 201, 76);
+  background: rgb(12, 11, 8);
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-3.png");
+}
+
+form.editEvent .container.column1 .wrap label {
+  color: rgb(240, 201, 76);
+}
+form.editEvent input,
+form.editEvent textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+form.editEvent button {
+  position: absolute;
+  padding: 20px;
+  right: 18px;
+  bottom: -18px;
+  background: rgb(0, 0, 0);
+  color: rgb(240, 201, 76);
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+  transition-duration: 0.4s;
+}
+form.editEvent button:hover {
+  background: rgb(240, 201, 76);
+  color: rgb(0, 0, 0);
+  border: solid;
+  border-width: 1px;
+  cursor: pointer;
+}
+.x:hover {
+  color: rgb(10, 8, 1);
+  cursor: pointer;
+}
+.container .column1 .wrap label {
+  color: rgb(240, 201, 76);
+}

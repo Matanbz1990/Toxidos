@@ -1,0 +1,36 @@
+.eventFilter {
+  padding: 0 1rem;
+  width: 30rem;
+  /* height: 50rem; */
+  background: rgb(0, 0, 0);
+  color: rgb(240, 201, 76);
+  padding: 1rem 1rem;
+  margin: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  /* margin-left: 1 0; */
+  text-align: center;
+  margin: 20px auto;
+}
+
+.eventFilterControl {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.eventFilter label {
+  margin-bottom: 0.5rem;
+}
+
+.eventFilter select {
+  font: inherit;
+  padding: 0.5rem 3rem;
+  /* font-weight: bold; */
+  border-radius: 6px;
+}

@@ -1,0 +1,93 @@
+.event {
+  background: rgb(12, 11, 8);
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-3.png");
+  border-radius: 7px;
+  border-color: rgb(240, 201, 76);
+  border: 1px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  color: rgb(240, 201, 76);
+  margin: 10px 15px;
+  /* float: left; */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.event h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+.event p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+h3 {
+  margin: 0 20px;
+}
+
+/* .event button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: rgb(0, 0, 0);
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+} */
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 65rem;
+  min-width: 40rem;
+  border-color: rgb(240, 201, 76);
+  border: 1px;
+}
+.container label {
+  /* flex: 0 1 100%; */
+  padding: 0 1rem;
+}
+
+.container input {
+  flex: 0 0 33.33333%;
+  max-width: 50%;
+}
+.prevContainer {
+  display: flex;
+  justify-content: space-around;
+  border-color: rgb(240, 201, 76);
+  border: 1px;
+}
+.wrap {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.button1 {
+  border-radius: 20px;
+  /* height: 40px; */
+  /* width: 220px; */
+  font-size: larger;
+  background-color: rgb(5, 0, 0);
+  color: rgb(240, 201, 76);
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 5px;
+}
+.button1:hover {
+  background-color: rgb(240, 201, 76);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+.closeAndDelete {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5px;
+}
+p {
+  font-size: x-large;
+  text-align: center;
+}
