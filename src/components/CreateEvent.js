@@ -16,6 +16,7 @@ function CreateEvent(props) {
     dressCode: "",
     imEshkachech: "",
     breakinGglassSong: "",
+    givenPrice: "",
     remarks: "",
   });
   const [isDjChecked, setIsDjChecked] = useState(true);
@@ -61,6 +62,7 @@ function CreateEvent(props) {
       dressCode: "",
       imEshkachech: "",
       breakinGglassSong: "",
+      givenPrice: "",
       remarks: "",
     });
     props.closeCreateEvent();
@@ -198,6 +200,16 @@ function CreateEvent(props) {
                 name="breakinGglassSong"
                 onChange={handleChange}
                 value={event.breakinGglassSong}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label>Given Price:</label>
+              <input
+                type="number"
+                id="input"
+                name="givenPrice"
+                onChange={handleChange}
+                value={event.givenPrice}
               />
             </div>
             <div className={classes.wrap}>

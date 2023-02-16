@@ -77,12 +77,11 @@ const Month = (props) => {
         </h3>
 
         <div className={classes.displayEvents}>
-          {monthItem.map((eventItem, index) => (
-            <div>
+          {monthItem.map((eventItem) => (
+            <div key={eventItem.id}>
               {monthIsOpen && (
                 <Event
                   id={eventItem.id}
-                  key={eventItem.id}
                   date={eventItem.date}
                   location={eventItem.location}
                   costumerName={eventItem.costumerName}
@@ -94,6 +93,7 @@ const Month = (props) => {
                   // finishTime={eventItem.finishTime}
                   imEshkachech={eventItem.imEshkachech}
                   breakinGglassSong={eventItem.breakinGglassSong}
+                  givenPrice={eventItem.givenPrice}
                   remarks={eventItem.remarks}
                   onDelete={props.deleteHandler}
                   eventIsEdittedHandler={props.eventIsEdittedHandler}

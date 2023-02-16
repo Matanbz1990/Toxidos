@@ -1,13 +1,10 @@
 .container {
   display: flex;
-  /* flex-flow: row nowrap; */
   justify-content: space-between;
 }
 
 .wrap {
   display: flex;
-  /* justify-content: space-between; */
-  /* gap: 5px; */
   margin: 10px;
 }
 form input {
@@ -48,7 +45,7 @@ form.editEvent {
   background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-3.png");
 }
 
-form.editEvent .container.column1 .wrap label {
+form.editEvent .container .wrap label {
   color: rgb(240, 201, 76);
 }
 form.editEvent input,

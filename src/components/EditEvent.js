@@ -1,5 +1,5 @@
 import Modal from "./Modal";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import Fab from "@mui/material/Fab";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import classes from "./EditEvent.module.css";
@@ -17,25 +17,14 @@ const EditEvent = (props) => {
     dressCode: props.currentEvent.dressCode,
     imEshkachech: props.currentEvent.imEshkachech,
     breakinGglassSong: props.currentEvent.breakinGglassSong,
+    givenPrice: props.currentEvent.givenPrice,
     remarks: props.currentEvent.remarks,
     id: props.currentEvent.id,
   });
+
   const [checked, setChecked] = useState(false);
   const [shwekiChecked, setShwekiChecked] = useState(false);
   const [karlibachChecked, setKarlibachChecked] = useState(false);
-
-  const locationRef = useRef(null);
-  const namesRef = useRef(null);
-  const hinumaRef = useRef(null);
-  const brideSongRef = useRef(null);
-  const dressRef = useRef(null);
-  const breakingRef = useRef(null);
-  const remarksRef = useRef(null);
-  // const inputRef = useRef(null);
-
-  // useEffect(() => {
-  //   // inputRef.current.focus();
-  // }, [event]);
 
   function handleChange(e) {
     // e.preventDefault();
@@ -65,7 +54,9 @@ const EditEvent = (props) => {
     console.log("event has edited!");
     console.log(event);
     fetch(
-      "https://toxidos-24688-default-rtdb.firebaseio.com/events/" + event.id,
+      "https://toxidos-24688-default-rtdb.firebaseio.com/events/" +
+        event.id +
+        ".json",
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -80,6 +71,7 @@ const EditEvent = (props) => {
           dressCode: event.dressCode,
           imEshkachech: event.imEshkachech,
           breakinGglassSong: event.breakinGglassSong,
+          givenPrice: event.givenPrice,
           remarks: event.remarks,
           id: event.id,
         }),
@@ -87,20 +79,7 @@ const EditEvent = (props) => {
     ).then((data) => {
       console.log(data);
     });
-    // props.onAdd(event);
-    // setEvent({
-    //   date: "",
-    //   location: "",
-    //   costumerName: "",
-    //   balanceHour: "",
-    //   hinumaCoverSong: "",
-    //   brideBlessSong: "",
-    //   isDj: "",
-    //   dressCode: "",
-    //   imEshkachech: "",
-    //   breakinGglassSong: "",
-    //   remarks: "",
-    // });
+
     props.eventIsEdittedHandler();
     props.onCloseEdit();
   }
@@ -114,9 +93,9 @@ const EditEvent = (props) => {
             <div className={classes.column1}>
               <div className={classes.wrap}>
                 <label htmlFor="date">Date:</label>
+
                 <input
                   type="date"
-                  id="input"
                   name="date"
                   onChange={handleChange}
                   value={event.date}
@@ -125,9 +104,7 @@ const EditEvent = (props) => {
               <div className={classes.wrap}>
                 <label htmlFor="location">Location:</label>
                 <input
-                  ref={locationRef}
                   type="text"
-                  id="input"
                   name="location"
                   onChange={handleChange}
                   value={event.location}
@@ -137,9 +114,7 @@ const EditEvent = (props) => {
                 <label htmlFor="costumerName">Bride & Groom names:</label>
 
                 <input
-                  ref={namesRef}
                   type="text"
-                  id="input"
                   name="costumerName"
                   onChange={handleChange}
                   value={event.costumerName}
@@ -150,7 +125,6 @@ const EditEvent = (props) => {
 
                 <input
                   type="time"
-                  id="input"
                   name="balanceHour"
                   onChange={handleChange}
                   value={event.balanceHour}
@@ -160,9 +134,7 @@ const EditEvent = (props) => {
                 <label htmlFor="hinumaCoverSong">Hinuma cover song:</label>
 
                 <input
-                  ref={hinumaRef}
                   type="text"
-                  id="input"
                   name="hinumaCoverSong"
                   onChange={handleChange}
                   value={event.hinumaCoverSong}
@@ -172,9 +144,7 @@ const EditEvent = (props) => {
                 <label htmlFor="brideBlessSong">Bride bless song:</label>
 
                 <input
-                  ref={brideSongRef}
                   type="text"
-                  id="input"
                   name="brideBlessSong"
                   onChange={handleChange}
                   value={event.brideBlessSong}
@@ -186,21 +156,17 @@ const EditEvent = (props) => {
                 <label htmlFor="isDj">there is Dj?</label>
 
                 <input
-                  id="input"
                   type="checkbox"
                   checked={checked}
                   name="isDj"
                   onChange={handleChange}
-                  // value={isDjChecked ? "yes" : "no"}
                 />
               </div>
               <div className={classes.wrap}>
                 <label htmlFor="dressCode">Dress code:</label>
 
                 <input
-                  ref={dressRef}
                   type="text"
-                  id="input"
                   name="dressCode"
                   onChange={handleChange}
                   value={event.dressCode}
@@ -241,18 +207,22 @@ const EditEvent = (props) => {
               <div className={classes.wrap}>
                 <label>Breaking glass song:</label>
                 <input
-                  ref={breakingRef}
-                  id="input"
                   name="breakinGglassSong"
                   onChange={handleChange}
                   value={event.breakinGglassSong}
                 />
               </div>
               <div className={classes.wrap}>
+                <label>Given Price:</label>
+                <input
+                  name="givenPrice"
+                  onChange={handleChange}
+                  value={event.givenPrice}
+                />
+              </div>
+              <div className={classes.wrap}>
                 <label> Any remarks</label>
                 <input
-                  ref={remarksRef}
-                  id="input"
                   name="remarks"
                   onChange={handleChange}
                   value={event.remarks}

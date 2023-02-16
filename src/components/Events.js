@@ -108,7 +108,7 @@ const Events = (props) => {
       {eventDisplayed && <h2>there is no events this year yet</h2>}
       {showEvents &&
         months.map((currentMonth, index) => {
-          if (currentMonth !== undefined) {
+          if (currentMonth !== undefined)
             return (
               <Month
                 monthItem={currentMonth}
@@ -120,7 +120,7 @@ const Events = (props) => {
                 eventIsEdittedHandler={eventIsEdittedHandler}
               />
             );
-          } else return 1;
+          else return 1;
         })}
       ;
     </div>

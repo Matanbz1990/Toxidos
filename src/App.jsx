@@ -25,6 +25,7 @@ function App() {
         finishTime: newEvent.finishTime,
         imEshkachech: newEvent.imEshkachech,
         breakinGglassSong: newEvent.breakinGglassSong,
+        givenPrice: newEvent.givenPrice,
         remarks: newEvent.remarks,
         id: newEvent.id,
       }),

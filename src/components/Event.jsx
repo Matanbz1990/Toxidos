@@ -15,7 +15,6 @@ function Event(props) {
     <div className={classes.event}>
       {editIsShowen && (
         <EditEvent
-          key={Math.random()}
           currentEvent={props}
           onCloseEdit={onCloseEditEvent}
           eventIsEdittedHandler={props.eventIsEdittedHandler}
@@ -82,10 +81,17 @@ function Event(props) {
               <label>Breaking glass song:</label>
               <p>{props.breakinGglassSong}</p>
             </div>
+
             <div className={classes.wrap}>
               <label> Any remarks:</label>
               <p>{props.remarks}</p>
             </div>
+            {props.isAuthenticated && (
+              <div className={classes.wrap}>
+                <label>Given Price:</label>
+                <p>{props.givenPrice}</p>
+              </div>
+            )}
             <div className={classes.closeAndDelete}>
               <button
                 className={classes.button1}
@@ -101,9 +107,7 @@ function Event(props) {
                   onClick={() => {
                     setEditIsShowen(true);
                     props.onCloseTheCreateEvent();
-                    {
-                      console.log();
-                    }
+                    console.log();
                   }}
                 >
                   edit
