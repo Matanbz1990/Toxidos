@@ -4,7 +4,6 @@ import classes from "./App.module.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CreateEvent from "./components/CreateEvent";
-import AdditionalContent from "./AdditionalContent";
 
 function App() {
   const [eventAdded, setEventAdded] = useState(false);
@@ -43,9 +42,9 @@ function App() {
         isAuthenticated={isAuthenticated}
         key={Math.random()}
       />
-      <div className={classes.icons}>
+      {/* <div className={classes.icons}>
         <AdditionalContent />
-      </div>
+      </div> */}
 
       {!showCreateEvent && isAuthenticated && (
         <div className={classes.buttonContainer}>
