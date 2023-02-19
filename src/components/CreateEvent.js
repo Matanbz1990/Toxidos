@@ -10,17 +10,32 @@ function CreateEvent(props) {
     location: "",
     costumerName: "",
     balanceHour: "",
+    brideChairHour: "",
     hinumaCoverSong: "",
     brideBlessSong: "",
-    isDj: "",
-    dressCode: "",
+    isDj: "no",
+    dressCode: "שחור שחור",
     imEshkachech: "",
     breakinGglassSong: "",
     givenPrice: "",
     remarks: "",
+    managerRemarks: "",
   });
   const [isDjChecked, setIsDjChecked] = useState(true);
   const [isSubmitAllowed, setIsSubmitAllowed] = useState(false);
+
+  const getCurrentDate = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1;
+    let dd = today.getDate();
+
+    if (dd < 10) dd = "0" + dd;
+    if (mm < 10) mm = "0" + mm;
+
+    return yyyy + "-" + mm + "-" + dd;
+  };
+
   useEffect(() => {
     if (event.date.length !== 0) setIsSubmitAllowed(true);
     else setIsSubmitAllowed(false);
@@ -28,7 +43,6 @@ function CreateEvent(props) {
 
   function handleChange(e) {
     const { name, value, type, id } = e.target;
-    // console.log(name, value, type);
     if (type === "checkbox") {
       if (name === "isDj") setIsDjChecked(!isDjChecked);
     }
@@ -56,14 +70,16 @@ function CreateEvent(props) {
       location: "",
       costumerName: "",
       balanceHour: "",
+      brideChairHour: "",
       hinumaCoverSong: "",
       brideBlessSong: "",
-      isDj: "",
-      dressCode: "",
+      isDj: "no",
+      dressCode: "שחור שחור",
       imEshkachech: "",
       breakinGglassSong: "",
       givenPrice: "",
       remarks: "",
+      managerRemarks: "",
     });
     props.closeCreateEvent();
     e.preventDefault();
@@ -77,6 +93,7 @@ function CreateEvent(props) {
             <div className={classes.wrap}>
               <label htmlFor="date">Date:</label>
               <input
+                min={getCurrentDate()}
                 type="date"
                 id="input"
                 name="date"
@@ -114,6 +131,17 @@ function CreateEvent(props) {
                 name="balanceHour"
                 onChange={handleChange}
                 value={event.balanceHour}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="brideChairHour">Bride chair hour:</label>
+
+              <input
+                type="time"
+                id="input"
+                name="brideChairHour"
+                onChange={handleChange}
+                value={event.brideChairHour}
               />
             </div>
             <div className={classes.wrap}>
@@ -202,8 +230,19 @@ function CreateEvent(props) {
                 value={event.breakinGglassSong}
               />
             </div>
+
             <div className={classes.wrap}>
-              <label>Given Price:</label>
+              <label> Any remarks (special request/players etc.):</label>
+              <textarea
+                name="remarks"
+                cols="40"
+                rows="2"
+                onChange={handleChange}
+                value={event.remarks}
+              ></textarea>
+            </div>
+            <div className={classes.wrap}>
+              <label>Price in Shekels(private):</label>
               <input
                 type="number"
                 id="input"
@@ -213,14 +252,14 @@ function CreateEvent(props) {
               />
             </div>
             <div className={classes.wrap}>
-              <label> Any remarks</label>
-              <input
-                type="text"
-                id="input"
-                name="remarks"
+              <label> Manager remarks (private):</label>
+              <textarea
+                name="managerRemarks"
+                cols="40"
+                rows="2"
                 onChange={handleChange}
-                value={event.remarks}
-              />
+                value={event.managerRemarks}
+              ></textarea>
             </div>
           </div>
         </div>

@@ -5,7 +5,6 @@ import { useState } from "react";
 const Month = (props) => {
   const [monthIsOpen, setMonthIsOpen] = useState(false);
   let monthItem = props.monthItem;
-  // console.log(monthItem);
 
   const switchMonth = (month) => {
     month = +month;
@@ -14,7 +13,7 @@ const Month = (props) => {
         return "January";
 
       case 2:
-        return "Februar";
+        return "February";
 
       case 3:
         return "March";
@@ -51,19 +50,6 @@ const Month = (props) => {
     }
   };
 
-  function randomStr() {
-    let result = "";
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < 5) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-  }
-
   return (
     <div>
       <div className={classes.monthContainer}>
@@ -88,9 +74,10 @@ const Month = (props) => {
                   balanceHour={eventItem.balanceHour}
                   hinumaCoverSong={eventItem.hinumaCoverSong}
                   brideBlessSong={eventItem.brideBlessSong}
+                  brideChairHour={eventItem.brideChairHour}
+                  managerRemarks={eventItem.managerRemarks}
                   isDj={eventItem.isDj}
                   dressCode={eventItem.dressCode}
-                  // finishTime={eventItem.finishTime}
                   imEshkachech={eventItem.imEshkachech}
                   breakinGglassSong={eventItem.breakinGglassSong}
                   givenPrice={eventItem.givenPrice}

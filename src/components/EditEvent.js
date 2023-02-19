@@ -1,5 +1,6 @@
-import Modal from "./Modal";
-import { useState } from "react";
+// import Modal from "./Modal";
+import Modal from "@mui/material/Modal";
+import { useState, useEffect } from "react";
 import Fab from "@mui/material/Fab";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import classes from "./EditEvent.module.css";
@@ -11,6 +12,7 @@ const EditEvent = (props) => {
     location: props.currentEvent.location,
     costumerName: props.currentEvent.costumerName,
     balanceHour: props.currentEvent.balanceHour,
+    brideChairHour: props.currentEvent.brideChairHour,
     hinumaCoverSong: props.currentEvent.hinumaCoverSong,
     brideBlessSong: props.currentEvent.breakinGglassSong,
     isDj: props.currentEvent.isDj,
@@ -19,27 +21,34 @@ const EditEvent = (props) => {
     breakinGglassSong: props.currentEvent.breakinGglassSong,
     givenPrice: props.currentEvent.givenPrice,
     remarks: props.currentEvent.remarks,
+    managerRemarks: props.currentEvent.managerRemarks,
     id: props.currentEvent.id,
   });
 
-  const [checked, setChecked] = useState(false);
+  let isDj;
+  if (event.isDj === "yes") isDj = true;
+  else isDj = false;
+
+  const [checked, setChecked] = useState(isDj);
   const [shwekiChecked, setShwekiChecked] = useState(false);
   const [karlibachChecked, setKarlibachChecked] = useState(false);
+  useEffect(() => {
+    if (event.imEshkachech === "shweki") setShwekiChecked(true);
+    if (event.imEshkachech === "karlibach") setKarlibachChecked(true);
+  }, [event.imEshkachech]);
 
   function handleChange(e) {
-    // e.preventDefault();
     const { name, value, type, checked } = e.target;
-    console.log(name, value, type, checked);
-
-    if (type === "checkbox") setChecked(checked);
-
+    if (type === "checkbox") {
+      setChecked(checked);
+    }
     if (value === "shweki") {
-      setShwekiChecked(checked);
-      setKarlibachChecked(!checked);
+      setShwekiChecked(true);
+      setKarlibachChecked(false);
     }
     if (value === "karlibach") {
-      setKarlibachChecked(checked);
-      setShwekiChecked(!checked);
+      setKarlibachChecked(true);
+      setShwekiChecked(false);
     }
 
     setCurrentEvent((prevEvent) => {
@@ -51,8 +60,6 @@ const EditEvent = (props) => {
   }
 
   function submitEvent(e) {
-    console.log("event has edited!");
-    console.log(event);
     fetch(
       "https://toxidos-24688-default-rtdb.firebaseio.com/events/" +
         event.id +
@@ -61,31 +68,20 @@ const EditEvent = (props) => {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          date: event.date,
-          location: event.location,
-          costumerName: event.costumerName,
-          balanceHour: event.balanceHour,
-          hinumaCoverSong: event.hinumaCoverSong,
-          brideBlessSong: event.breakinGglassSong,
-          isDj: event.isDj,
-          dressCode: event.dressCode,
-          imEshkachech: event.imEshkachech,
-          breakinGglassSong: event.breakinGglassSong,
-          givenPrice: event.givenPrice,
-          remarks: event.remarks,
-          id: event.id,
+          event: event,
         }),
       }
-    ).then((data) => {
-      console.log(data);
-    });
+    );
 
     props.eventIsEdittedHandler();
     props.onCloseEdit();
   }
-
   return (
-    <Modal onClose={props.onCloseEdit}>
+    <Modal
+      onClose={props.onCloseEdit}
+      open={props.editIsShowen}
+      className={classes.modal}
+    >
       <div>
         <form className={classes.editEvent}>
           <h3>Edit Event</h3>
@@ -131,6 +127,16 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
+                <label htmlFor="brideChairHour">Bride chair hour:</label>
+
+                <input
+                  type="time"
+                  name="brideChairHour"
+                  onChange={handleChange}
+                  value={event.brideChairHour}
+                />
+              </div>
+              <div className={classes.wrap}>
                 <label htmlFor="hinumaCoverSong">Hinuma cover song:</label>
 
                 <input
@@ -160,6 +166,7 @@ const EditEvent = (props) => {
                   checked={checked}
                   name="isDj"
                   onChange={handleChange}
+                  value={checked ? "no" : "yes"}
                 />
               </div>
               <div className={classes.wrap}>
@@ -183,7 +190,7 @@ const EditEvent = (props) => {
                       checked={shwekiChecked}
                       type="radio"
                       id="shweki"
-                      name="radio"
+                      name="imEshkachech"
                       value="shweki"
                       onChange={handleChange}
                     />
@@ -197,7 +204,7 @@ const EditEvent = (props) => {
                       checked={karlibachChecked}
                       type="radio"
                       id="karlibach"
-                      name="radio"
+                      name="imEshkachech"
                       value="karlibach"
                       onChange={handleChange}
                     />
@@ -212,8 +219,17 @@ const EditEvent = (props) => {
                   value={event.breakinGglassSong}
                 />
               </div>
+
               <div className={classes.wrap}>
-                <label>Given Price:</label>
+                <label> Any remarks:</label>
+                <textarea
+                  name="remarks"
+                  onChange={handleChange}
+                  value={event.remarks}
+                />
+              </div>
+              <div className={classes.wrap}>
+                <label>Price in Shekels:</label>
                 <input
                   name="givenPrice"
                   onChange={handleChange}
@@ -221,11 +237,11 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label> Any remarks</label>
-                <input
-                  name="remarks"
+                <label> Manager remarks:</label>
+                <textarea
+                  name="managerRemarks"
                   onChange={handleChange}
-                  value={event.remarks}
+                  value={event.managerRemarks}
                 />
               </div>
             </div>

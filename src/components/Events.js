@@ -1,11 +1,9 @@
-import classes from "./Events.module.css";
 import { useState, useEffect } from "react";
 import Month from "./Month";
 import EventFilter from "./EventFilter";
 
 const Events = (props) => {
   const [events, setEvents] = useState([]);
-  //   const [eventAdded, setEventAdded] = useState(false);
   const [eventRemoved, setEventRemoved] = useState(false);
   const [eventHasEditted, setEventHasEditted] = useState(false);
   const [showEvents, setShowEvents] = useState(true);
@@ -21,7 +19,7 @@ const Events = (props) => {
         res.json().then((data) => {
           let i = 0;
           for (let key in data.events) {
-            array.push(data.events[key]);
+            array.push(data.events[key].event);
             array[i].id = key;
             i++;
           }
@@ -29,7 +27,7 @@ const Events = (props) => {
         });
       }
     );
-  }, [props.eventAdded, eventRemoved]);
+  }, [props.eventAdded, eventRemoved, eventHasEditted]);
   const filteredYearArrayEvent = events.filter((event) => {
     return event.date.slice(0, 4) === eventYear;
   });
@@ -76,7 +74,6 @@ const Events = (props) => {
       setTimeout(() => {
         setEventRemoved(false);
       }, 2000);
-      console.log(res);
       if (events.length <= 1) {
         setShowEvents(false);
       }
@@ -98,11 +95,9 @@ const Events = (props) => {
   return (
     <div>
       <div>
-        {props.eventAdded && <h2 className={classes.messages}>Event Added!</h2>}
-        {eventRemoved && <h2 className={classes.messages}>Event Removed!</h2>}
-        {eventHasEditted && (
-          <h2 className={classes.messages}>Event has edited!</h2>
-        )}
+        {props.eventAdded && <h2>Event Added!</h2>}
+        {eventRemoved && <h2>Event Removed!</h2>}
+        {eventHasEditted && <h2>Event has edited!</h2>}
       </div>
       <EventFilter selectedYearData={selectedEventYear} />
       {eventDisplayed && <h2>there is no events this year yet</h2>}

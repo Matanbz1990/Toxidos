@@ -1,36 +1,29 @@
 import React from "react";
 import Img from "../assets/toxidos.jpg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import classes from "./Header.module.css";
 function Header(props) {
-  const [password, setPassword] = useState("");
+  const [userPassword, setUserPassword] = useState("");
   const [wrongPassword, setWrongPassword] = useState(false);
-  const [code, setCode] = useState(null);
-  useEffect(() => {
-    fetch(
-      "https://toxidos-24688-default-rtdb.firebaseio.com/password.json"
-    ).then((promise) => {
-      promise.json().then((data) => {
-        data = data.toString();
-        setCode(data);
-      });
-    });
-  }, []);
+
+  // const { signUp } = useAuth();
+  const realPassword = process.env.REACT_APP_PASSWORD;
+
   const passwordHandler = (e) => {
-    setPassword(e.target.value);
+    setUserPassword(e.target.value);
   };
 
   const submitPassword = (e) => {
     e.preventDefault();
+    // signUp(userPassword);
 
-    if (password === code) {
+    if (userPassword === realPassword) {
       props.setIsAuthenticated(true);
-      setPassword("");
+      setUserPassword("");
       setWrongPassword(false);
     } else {
       setWrongPassword(true);
     }
-    // }
   };
 
   const logOut = (e) => {
@@ -42,10 +35,7 @@ function Header(props) {
       <div className={classes.container2}>
         <img src={Img} alt="img"></img>
         <div className={classes.text}>
-          <h1>
-            {/* <SentimentSatisfiedOutlinedIcon /> */}
-            Toxidos Events Managment
-          </h1>
+          <h1>Toxidos Events Managment</h1>
         </div>
       </div>
       {!props.isAuthenticated && (
@@ -57,12 +47,10 @@ function Header(props) {
             name="password"
             placeholder="Password"
             onChange={passwordHandler}
-            value={password}
+            value={userPassword}
           />
           {wrongPassword && <h3>wrong password, try again</h3>}
-          {/* {!passwordIsValid && (
-            <h4>the password must have at least 6 characters</h4>
-          )} */}
+
           <button type="submit">Log in</button>
         </form>
       )}

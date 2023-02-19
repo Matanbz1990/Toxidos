@@ -5,7 +5,7 @@ function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer>
-      <p>Copyright ⓒ Matan Ben Zahav {year}</p>
+      <p>Copyright ⓒ Matan Ben Zahav {year} | built using React & Firebase</p>
     </footer>
   );
 }

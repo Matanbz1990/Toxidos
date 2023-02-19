@@ -5,8 +5,12 @@
 
 .wrap {
   display: flex;
-  margin: 10px;
+  margin-top: 5px;
 }
+.wrap textarea {
+  border-radius: 10px;
+}
+
 form input {
   width: 50rem;
   height: 20px;
@@ -87,4 +91,8 @@ form.editEvent button:hover {
 }
 .container .column1 .wrap label {
   color: rgb(240, 201, 76);
+}
+
+.modal {
+  margin-top: 20rem;
 }

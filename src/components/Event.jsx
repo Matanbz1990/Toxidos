@@ -10,7 +10,6 @@ function Event(props) {
   const onCloseEditEvent = () => {
     setEditIsShowen(false);
   };
-
   return (
     <div className={classes.event}>
       {editIsShowen && (
@@ -18,6 +17,7 @@ function Event(props) {
           currentEvent={props}
           onCloseEdit={onCloseEditEvent}
           eventIsEdittedHandler={props.eventIsEdittedHandler}
+          editIsShowen={editIsShowen}
         />
       )}
       {!isOpen && (
@@ -55,6 +55,10 @@ function Event(props) {
               <p>{props.balanceHour}</p>
             </div>
             <div className={classes.wrap}>
+              <label>Bride chair hour:</label>
+              <p>{props.brideChairHour}</p>
+            </div>
+            <div className={classes.wrap}>
               <label>Hinuma cover song:</label>
               <p>{props.hinumaCoverSong}</p>
             </div>
@@ -75,23 +79,29 @@ function Event(props) {
             <div className={classes.wrap}>
               <label>Im Eshkachech:</label>
               <p>{props.imEshkachech}</p>
-              {console.log(props.imEshkachech)}
             </div>
             <div className={classes.wrap}>
               <label>Breaking glass song:</label>
               <p>{props.breakinGglassSong}</p>
             </div>
-
             <div className={classes.wrap}>
               <label> Any remarks:</label>
               <p>{props.remarks}</p>
             </div>
             {props.isAuthenticated && (
-              <div className={classes.wrap}>
-                <label>Given Price:</label>
-                <p>{props.givenPrice}</p>
+              <div>
+                <p> (* just the manager can see)</p>
+                <div className={classes.wrap}>
+                  <label>* Price in Shekels:</label>
+                  <p>{props.givenPrice}</p>
+                </div>
+                <div className={classes.wrap}>
+                  <label>* Manager remarks:</label>
+                  <p>{props.managerRemarks}</p>
+                </div>
               </div>
             )}
+
             <div className={classes.closeAndDelete}>
               <button
                 className={classes.button1}
@@ -102,22 +112,23 @@ function Event(props) {
                 close
               </button>
               {props.isAuthenticated && (
-                <button
-                  className={classes.button1}
-                  onClick={() => {
-                    setEditIsShowen(true);
-                    props.onCloseTheCreateEvent();
-                    console.log();
-                  }}
-                >
-                  edit
-                </button>
+                <div>
+                  <button
+                    className={classes.button1}
+                    onClick={() => {
+                      setEditIsShowen(true);
+                      props.onCloseTheCreateEvent();
+                      console.log();
+                    }}
+                  >
+                    edit
+                  </button>
+                </div>
               )}
               {props.isAuthenticated && (
                 <button
                   className={classes.button1}
                   onClick={() => {
-                    console.log("delete");
                     props.onDelete(props.id);
                   }}
                 >

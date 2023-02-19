@@ -4,6 +4,7 @@ import classes from "./App.module.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CreateEvent from "./components/CreateEvent";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
   const [eventAdded, setEventAdded] = useState(false);
@@ -14,25 +15,11 @@ function App() {
     fetch("https://toxidos-24688-default-rtdb.firebaseio.com/events.json", {
       method: "POST",
       body: JSON.stringify({
-        date: newEvent.date,
-        location: newEvent.location,
-        costumerName: newEvent.costumerName,
-        balanceHour: newEvent.balanceHour,
-        hinumaCoverSong: newEvent.hinumaCoverSong,
-        brideBlessSong: newEvent.brideBlessSong,
-        isDj: newEvent.isDj,
-        dressCode: newEvent.dressCode,
-        finishTime: newEvent.finishTime,
-        imEshkachech: newEvent.imEshkachech,
-        breakinGglassSong: newEvent.breakinGglassSong,
-        givenPrice: newEvent.givenPrice,
-        remarks: newEvent.remarks,
-        id: newEvent.id,
+        event: newEvent,
       }),
       headers: { "Content-Type": "application/json" },
     })
       .then(() => {
-        // setShowEvents(true);
         setEventAdded(true);
         setTimeout(() => {
           setEventAdded(false);
@@ -48,43 +35,43 @@ function App() {
   };
 
   return (
-    <div className={classes.appContainer}>
-      <Header
-        setIsAuthenticated={setIsAuthenticated}
-        isAuthenticated={isAuthenticated}
-        key={Math.random()}
-      />
-
-      {!showCreateEvent && isAuthenticated && (
-        <div className={classes.buttonContainer}>
-          <button
-            className={classes.button1}
-            onClick={() => {
-              setShowCreateEvent(true);
-            }}
-            // disabled={!isAuthenticated}
-          >
-            Create event
-          </button>
-        </div>
-      )}
-      {showCreateEvent && (
-        <CreateEvent
-          onAdd={addEvent}
-          closeCreateEvent={closeTheCreateEvent}
-          // eventIsAdded={eventAdded}
+    <AuthProvider>
+      <div className={classes.appContainer}>
+        <Header
+          setIsAuthenticated={setIsAuthenticated}
+          isAuthenticated={isAuthenticated}
           key={Math.random()}
         />
-      )}
 
-      <Events
-        eventAdded={eventAdded}
-        closeTheCreateEvent={closeTheCreateEvent}
-        isAuthenticated={isAuthenticated}
-        key={Math.random()}
-      />
-      <Footer />
-    </div>
+        {!showCreateEvent && isAuthenticated && (
+          <div className={classes.buttonContainer}>
+            <button
+              className={classes.button1}
+              onClick={() => {
+                setShowCreateEvent(true);
+              }}
+            >
+              Create event
+            </button>
+          </div>
+        )}
+
+        {showCreateEvent && (
+          <CreateEvent
+            onAdd={addEvent}
+            closeCreateEvent={closeTheCreateEvent}
+            key={Math.random()}
+          />
+        )}
+        <Events
+          eventAdded={eventAdded}
+          closeTheCreateEvent={closeTheCreateEvent}
+          isAuthenticated={isAuthenticated}
+          key={Math.random()}
+        />
+        <Footer />
+      </div>
+    </AuthProvider>
   );
 }
 

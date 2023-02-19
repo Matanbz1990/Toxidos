@@ -1,5 +1,5 @@
 .event {
-  background: rgb(12, 11, 8);
+  background: rgb(0, 0, 0);
   background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-3.png");
   border-radius: 7px;
   border-color: rgb(240, 201, 76);
@@ -8,7 +8,6 @@
   padding: 10px;
   color: rgb(240, 201, 76);
   margin: 10px 15px;
-  /* float: left; */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 .event h1 {
@@ -25,17 +24,6 @@ h3 {
   margin: 0 20px;
 }
 
-/* .event button {
-  position: relative;
-  float: right;
-  margin-right: 10px;
-  color: rgb(0, 0, 0);
-  border: none;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  outline: none;
-} */
 .container {
   display: flex;
   justify-content: space-between;
@@ -45,7 +33,6 @@ h3 {
   border: 1px;
 }
 .container label {
-  /* flex: 0 1 100%; */
   padding: 0 1rem;
 }
 
@@ -68,8 +55,7 @@ h3 {
 
 .button1 {
   border-radius: 20px;
-  /* height: 40px; */
-  /* width: 220px; */
+  border: solid 1px rgb(240, 201, 76);
   font-size: larger;
   background-color: rgb(5, 0, 0);
   color: rgb(240, 201, 76);
