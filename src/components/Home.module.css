@@ -1,0 +1,72 @@
+.home p {
+  color: rgb(240, 201, 76);
+  margin-top: 30px;
+}
+.details {
+  display: flex;
+  justify-content: space-around;
+  color: rgb(240, 201, 76);
+  margin: auto;
+  margin-top: 30px;
+  width: 80%;
+  text-align: center;
+}
+
+.home button {
+  margin: auto;
+  border-radius: 20px;
+  height: 70px;
+  width: 200px;
+  font-size: larger;
+  background-color: rgb(0, 0, 0);
+  color: rgb(240, 201, 76);
+
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 30px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+.home button:hover {
+  background-color: rgb(240, 201, 76);
+  color: rgb(0, 0, 0);
+
+  cursor: pointer;
+}
+.home .buttonContainer {
+  text-align: center;
+}
+.text1 {
+  color: rgb(240, 201, 76);
+  padding-bottom: 20px;
+  text-align: center;
+  margin: auto;
+  margin-top: 50px;
+  /* border: solid 1px;
+  border-color: rgb(240, 201, 76); */
+  border-radius: 10px;
+  background-color: rgb(36, 34, 34);
+  background-image: url("https://www.transparenttextures.com/patterns/black-orchid.png");
+
+  /* background-color: rgb(0, 0, 0); */
+  width: 60%;
+}
+.text1 hr {
+  /* display: block; */
+  margin: 50px 400px 50px 400px;
+  border-style: inset;
+  border: 3;
+  border-color: rgb(240, 201, 76);
+}
+
+.text1 h1 {
+  height: 5rem;
+  color: rgb(240, 201, 76);
+  font-size: 70px;
+  margin-bottom: 30px;
+}
+.vertical {
+  border-left: 6px solid rgb(240, 201, 76);
+  height: 200px;
+  /* position: absolute; */
+  /* left: 50%; */
+}

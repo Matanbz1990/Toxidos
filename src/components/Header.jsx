@@ -1,62 +1,63 @@
 import React from "react";
-import Img from "../assets/toxidos.jpg";
-import { useState } from "react";
+// import Img from "../assets/toxidos.jpg";
+// import { useState } from "react";
 import classes from "./Header.module.css";
+import { useAuth } from "../contexts/AuthContext";
+import { useState } from "react";
 function Header(props) {
-  const [userPassword, setUserPassword] = useState("");
-  const [wrongPassword, setWrongPassword] = useState(false);
+  const [error, setError] = useState("");
+  // const realPassword = process.env.REACT_APP_PASSWORD;
 
-  // const { signUp } = useAuth();
-  const realPassword = process.env.REACT_APP_PASSWORD;
+  // const submitPassword = (e) => {
+  //   e.preventDefault();
+  // };
+  const { currentUser, logout } = useAuth();
 
-  const passwordHandler = (e) => {
-    setUserPassword(e.target.value);
-  };
-
-  const submitPassword = (e) => {
+  const handleLogout = async (e) => {
     e.preventDefault();
-    // signUp(userPassword);
-
-    if (userPassword === realPassword) {
-      props.setIsAuthenticated(true);
-      setUserPassword("");
-      setWrongPassword(false);
-    } else {
-      setWrongPassword(true);
+    setError("");
+    try {
+      await logout();
+      props.setIsAuthenticated(false);
+      // openLogin();
+    } catch {
+      setError("Failed to log out");
     }
+    props.setIsAuthenticated(false);
   };
 
-  const logOut = (e) => {
-    e.preventDefault();
-    props.setIsAuthenticated(false);
+  const openSignUp = () => {
+    props.handleSignUpIsOpen();
+  };
+  const openLogin = () => {
+    props.handleLoginIsOpen();
   };
   return (
     <header>
       <div className={classes.container2}>
-        <img src={Img} alt="img"></img>
+        {/* <img src={Img} alt="img"></img> */}
         <div className={classes.text}>
-          <h1>Toxidos Events Managment</h1>
+          <h1> Weddiment </h1>
+          <p className={classes.ptext}>
+            {" "}
+            weddings and events mangment platform for bands managers
+          </p>
         </div>
       </div>
       {!props.isAuthenticated && (
-        <form className={classes.container3} onSubmit={submitPassword}>
-          <label>Manger Accses</label>
-          <input
-            type="password"
-            id="pass"
-            name="password"
-            placeholder="Password"
-            onChange={passwordHandler}
-            value={userPassword}
-          />
-          {wrongPassword && <h3>wrong password, try again</h3>}
-
-          <button type="submit">Log in</button>
-        </form>
+        <div className={classes.container3}>
+          <button type="submit" onClick={openLogin}>
+            Log in
+          </button>
+          <button type="submit" onClick={openSignUp}>
+            sign up
+          </button>
+        </div>
       )}
       {props.isAuthenticated && (
-        <form className={classes.container3} onSubmit={logOut}>
-          <h3>Manging state </h3>
+        <form className={classes.container3} onSubmit={handleLogout}>
+          <h3>{currentUser.email} is connected </h3>
+          {error && <p>{error}</p>}
           <button type="submit">Log out</button>
         </form>
       )}

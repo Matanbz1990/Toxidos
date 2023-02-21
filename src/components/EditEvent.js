@@ -1,11 +1,9 @@
-// import Modal from "./Modal";
 import Modal from "@mui/material/Modal";
 import { useState, useEffect } from "react";
 import Fab from "@mui/material/Fab";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import classes from "./EditEvent.module.css";
 
-//אולי להשתמש ביוז רף במקום יוז סטייט
 const EditEvent = (props) => {
   const [event, setCurrentEvent] = useState({
     date: props.currentEvent.date,

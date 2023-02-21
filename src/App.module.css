@@ -6,8 +6,8 @@
   background-color: rgb(0, 0, 0);
   color: rgb(240, 201, 76);
   transition-duration: 0.4s;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 30px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
 .button1:hover {
   background-color: rgb(240, 201, 76);

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Month from "./Month";
 import EventFilter from "./EventFilter";
+import classes from "./Events.module.css";
 
 const Events = (props) => {
   const [events, setEvents] = useState([]);
@@ -93,7 +94,7 @@ const Events = (props) => {
   }
 
   return (
-    <div>
+    <div className={classes.messages}>
       <div>
         {props.eventAdded && <h2>Event Added!</h2>}
         {eventRemoved && <h2>Event Removed!</h2>}
