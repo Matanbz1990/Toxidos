@@ -61,7 +61,7 @@ export default function Signup(props) {
             <input type="password" ref={passwordRef} required />
           </div>
           <div className={classes.inputlabel}>
-            <label>password (again):</label>
+            <label>password (confirm):</label>
             <input type="password" ref={validatePasswordRef} required />
           </div>
         </div>

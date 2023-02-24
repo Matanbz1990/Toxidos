@@ -28,15 +28,22 @@ h3 {
 .container {
   display: flex;
   justify-content: space-between;
-  max-width: 65rem;
+  max-width: 70rem;
   min-width: 40rem;
   border-color: rgb(240, 201, 76);
   border: 1px;
 }
-.container label {
+/* .container label {
   padding: 0 1rem;
+  margin-top: 5px;
+} */
+.reserved {
+  background-color: rgb(95, 27, 27);
+  border-radius: 7px;
 }
-
+.share {
+  padding-top: 3px;
+}
 .container input {
   flex: 0 0 33.33333%;
   max-width: 50%;
@@ -50,6 +57,7 @@ h3 {
 }
 .wrap {
   display: flex;
+  align-items: baseline;
   gap: 5px;
   margin-bottom: 10px;
 }

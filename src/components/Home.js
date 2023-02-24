@@ -43,14 +43,3 @@ export default function Home(props) {
     </div>
   );
 }
-//  for (let i = 0; i < foodItems.length; i++) {
-//    items[i] = foodItems[i].map((item) => (
-//      <MealItem
-//        id={item.id}
-//        key={item.id}
-//        description={item.description}
-//        name={item.name}
-//        price={item.price}
-//      />
-//    ));
-//  }

@@ -31,6 +31,10 @@ export default function Login(props) {
     props.handleLoginIsOpen();
     props.handleSignUpIsOpen();
   };
+  const changeToForgetPassword = () => {
+    props.handleLoginIsOpen();
+    props.handleForgetPasswordIsOpen();
+  };
   return (
     <Modal
       open={props.loginIsOpen}
@@ -51,6 +55,10 @@ export default function Login(props) {
         </div>
         {error && <p>{error}</p>}
         <button type="submit">Login</button>
+        <p>
+          forgot password? press{" "}
+          <span onClick={changeToForgetPassword}>here</span>{" "}
+        </p>
         <p>you dont have account yet?</p>
         <button
           onClick={changeToSignup}

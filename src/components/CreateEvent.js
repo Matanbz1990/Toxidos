@@ -9,21 +9,34 @@ function CreateEvent(props) {
     date: "",
     location: "",
     costumerName: "",
+    amountInvited: "",
+    receptionMusicHour: "",
+    receptionMusicType: "",
     balanceHour: "",
     brideChairHour: "",
+    chupaHour: "",
     hinumaCoverSong: "",
     brideBlessSong: "",
+    chupaEnteranceSong: "",
+    brideFriendsCharacter: "",
+    groomFriendsCharacter: "",
     isDj: "no",
-    dressCode: "שחור שחור",
+    isClosed: "",
+    dressCode: "",
     imEshkachech: "",
-    breakinGglassSong: "",
+    breakingGlassTiming: "",
+    breakingGlassSong: "",
+    firstDancingRoundDuration: "",
+    firstDancingRoundMusicType: "",
+    secondDancingRoundDuration: "",
+    secondDancingRoundMusicType: "",
+    contactManName: "",
+    contactManPhone: "",
     givenPrice: "",
-    remarks: "",
     managerRemarks: "",
   });
   const [isDjChecked, setIsDjChecked] = useState(true);
   const [isSubmitAllowed, setIsSubmitAllowed] = useState(false);
-
   const getCurrentDate = () => {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -64,21 +77,36 @@ function CreateEvent(props) {
   }
 
   function submitEvent(e) {
+    console.log(event);
     props.onAdd(event);
     setEvent({
       date: "",
       location: "",
       costumerName: "",
+      amountInvited: "",
+      receptionMusicHour: "",
+      receptionMusicType: "",
       balanceHour: "",
       brideChairHour: "",
+      chupaHour: "",
       hinumaCoverSong: "",
       brideBlessSong: "",
+      chupaEnteranceSong: "",
+      brideFriendsCharacter: "",
+      groomFriendsCharacter: "",
       isDj: "no",
-      dressCode: "שחור שחור",
+      isClosed: "",
+      dressCode: "",
       imEshkachech: "",
-      breakinGglassSong: "",
+      breakingGlassTiming: "",
+      breakingGlassSong: "",
+      firstDancingRoundDuration: "",
+      firstDancingRoundMusicType: "",
+      secondDancingRoundDuration: "",
+      secondDancingRoundMusicType: "",
+      contactManName: "",
+      contactManPhone: "",
       givenPrice: "",
-      remarks: "",
       managerRemarks: "",
     });
     props.closeCreateEvent();
@@ -88,6 +116,7 @@ function CreateEvent(props) {
   return (
     <div>
       <form className={classes.createEvent}>
+        <h2>create event</h2>
         <div className={classes.container}>
           <div className={classes.column1}>
             <div className={classes.wrap}>
@@ -123,6 +152,17 @@ function CreateEvent(props) {
               />
             </div>
             <div className={classes.wrap}>
+              <label htmlFor="amountInvited">Amount Invited:</label>
+
+              <input
+                type="number"
+                id="input"
+                name="amountInvited"
+                onChange={handleChange}
+                value={event.amountInvited}
+              />
+            </div>
+            <div className={classes.wrap}>
               <label htmlFor="balanceHour">Balance hour:</label>
 
               <input
@@ -131,6 +171,30 @@ function CreateEvent(props) {
                 name="balanceHour"
                 onChange={handleChange}
                 value={event.balanceHour}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="receptionMusicHour">
+                Reception Music start hour:
+              </label>
+
+              <input
+                type="time"
+                id="input"
+                name="receptionMusicHour"
+                onChange={handleChange}
+                value={event.receptionMusicHour}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="receptionMusicType">Reception music type:</label>
+
+              <input
+                type="text"
+                id="input"
+                name="receptionMusicType"
+                onChange={handleChange}
+                value={event.receptionMusicType}
               />
             </div>
             <div className={classes.wrap}>
@@ -145,6 +209,17 @@ function CreateEvent(props) {
               />
             </div>
             <div className={classes.wrap}>
+              <label htmlFor="chupaHour">Chupa Hour:</label>
+
+              <input
+                type="time"
+                id="input"
+                name="chupaHour"
+                onChange={handleChange}
+                value={event.chupaHour}
+              />
+            </div>
+            <div className={classes.wrap}>
               <label htmlFor="hinumaCoverSong">Hinuma cover song:</label>
 
               <input
@@ -155,6 +230,62 @@ function CreateEvent(props) {
                 value={event.hinumaCoverSong}
               />
             </div>
+
+            <div className={classes.wrap}>
+              <label htmlFor="firstDancingRoundDuration">
+                First dancing round duration(minutes):
+              </label>
+
+              <input
+                type="number"
+                id="input"
+                name="firstDancingRoundDuration"
+                onChange={handleChange}
+                value={event.firstDancingRoundDuration}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="firstDancingRoundMusicType">
+                First dancing round music type:
+              </label>
+
+              <input
+                type="text"
+                id="input"
+                name="firstDancingRoundMusicType"
+                onChange={handleChange}
+                value={event.firstDancingRoundMusicType}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="secondDancingRoundDuration">
+                Second dancing round duration(minutes):
+              </label>
+
+              <input
+                type="number"
+                id="input"
+                name="secondDancingRoundDuration"
+                onChange={handleChange}
+                value={event.secondDancingRoundDuration}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="secondDancingRoundMusicType">
+                Second dancing round music type:
+              </label>
+
+              <input
+                type="text"
+                id="input"
+                name="secondDancingRoundMusicType"
+                onChange={handleChange}
+                value={event.secondDancingRoundMusicType}
+              />
+            </div>
+          </div>
+
+          <div className={classes.column2}>
             <div className={classes.wrap}>
               <label htmlFor="brideBlessSong">Bride bless song:</label>
 
@@ -166,17 +297,65 @@ function CreateEvent(props) {
                 value={event.brideBlessSong}
               />
             </div>
-          </div>
-          <div className={classes.column2}>
             <div className={classes.wrap}>
-              <label htmlFor="isDj">there is Dj?</label>
+              <label htmlFor="chupaEnteranceSong">
+                Chupa Bride enterance song:
+              </label>
 
               <input
+                type="text"
                 id="input"
-                type="checkbox"
-                name="isDj"
+                name="chupaEnteranceSong"
                 onChange={handleChange}
-                value={isDjChecked ? "yes" : "no"}
+                value={event.chupaEnteranceSong}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="breakingGlassTiming">
+                Breaking glass timing:
+              </label>
+
+              <input
+                type="text"
+                id="input"
+                name="breakingGlassTiming"
+                onChange={handleChange}
+                value={event.breakingGlassTiming}
+              />
+            </div>
+
+            <div className={classes.wrap}>
+              <label htmlFor="breakingGlassSong">Breaking glass song:</label>
+              <input
+                type="text"
+                id="input"
+                name="breakingGlassSong"
+                onChange={handleChange}
+                value={event.breakingGlassSong}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="brideFriendsCharacter">
+                Bride friends character:
+              </label>
+              <input
+                type="text"
+                id="input"
+                name="brideFriendsCharacter"
+                onChange={handleChange}
+                value={event.brideFriendsCharacter}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="groomFriendsCharacter">
+                Groom friends character:
+              </label>
+              <input
+                type="text"
+                id="input"
+                name="groomFriendsCharacter"
+                onChange={handleChange}
+                value={event.groomFriendsCharacter}
               />
             </div>
             <div className={classes.wrap}>
@@ -191,58 +370,89 @@ function CreateEvent(props) {
               />
             </div>
             <div className={classes.wrap}>
-              <label> Im Eshkachech:</label>
+              <label htmlFor="contactManName">Contact man name:</label>
 
-              <div>
-                <label htmlFor="shweki">
-                  {" "}
-                  Shweki
-                  <input
-                    type="radio"
-                    id="shweki"
-                    name="imEshkachech"
-                    value="shweki"
-                    onChange={handleChange}
-                  />
-                </label>
-              </div>
-              <div>
-                <label htmlFor="karlibach">
-                  {" "}
-                  Karlibach
-                  <input
-                    type="radio"
-                    id="karlibach"
-                    name="imEshkachech"
-                    value="karlibach"
-                    onChange={handleChange}
-                  />
-                </label>
-              </div>
-            </div>
-            <div className={classes.wrap}>
-              <label>Breaking glass song:</label>
               <input
                 type="text"
                 id="input"
-                name="breakinGglassSong"
+                name="contactManName"
                 onChange={handleChange}
-                value={event.breakinGglassSong}
+                value={event.contactManName}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="contactManPhone">Contact man phone number:</label>
+
+              <input
+                type="number"
+                id="input"
+                name="contactManPhone"
+                onChange={handleChange}
+                value={event.contactManPhone}
               />
             </div>
 
             <div className={classes.wrap}>
-              <label> Any remarks (special request/players etc.):</label>
-              <textarea
-                name="remarks"
-                cols="40"
-                rows="2"
-                onChange={handleChange}
-                value={event.remarks}
-              ></textarea>
+              <label> the event is closed?:</label>
+
+              <div className={classes.radioInput}>
+                <label htmlFor="closed">closed</label>
+                <input
+                  type="radio"
+                  id="closed"
+                  name="isClosed"
+                  value="closed"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={classes.radioInput}>
+                <label htmlFor="reserved">reserved</label>
+                <input
+                  type="radio"
+                  id="reserved"
+                  name="isClosed"
+                  value="reserved"
+                  onChange={handleChange}
+                />
+              </div>
             </div>
             <div className={classes.wrap}>
-              <label>Price in Shekels(private):</label>
+              <label> Im Eshkachech:</label>
+
+              <div className={classes.radioInput}>
+                <label htmlFor="shweki"> Shweki</label>
+                <input
+                  type="radio"
+                  id="shweki"
+                  name="imEshkachech"
+                  value="shweki"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={classes.radioInput}>
+                <label htmlFor="karlibach"> Karlibach</label>
+                <input
+                  type="radio"
+                  id="karlibach"
+                  name="imEshkachech"
+                  value="karlibach"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className={classes.wrap}>
+              <label htmlFor="isDj">there is Dj?</label>
+
+              <input
+                id="input"
+                type="checkbox"
+                name="isDj"
+                onChange={handleChange}
+                value={isDjChecked ? "yes" : "no"}
+              />
+            </div>
+            <div className={classes.wrap}>
+              <label>Price in Shekels:</label>
               <input
                 type="number"
                 id="input"
@@ -252,7 +462,7 @@ function CreateEvent(props) {
               />
             </div>
             <div className={classes.wrap}>
-              <label> Manager remarks (private):</label>
+              <label> Manager remarks :</label>
               <textarea
                 name="managerRemarks"
                 cols="40"
@@ -263,27 +473,25 @@ function CreateEvent(props) {
             </div>
           </div>
         </div>
-
-        {
-          <div>
-            <Fab
-              onClick={submitEvent}
-              disabled={!isSubmitAllowed}
-              sx={{
-                border: "3px solid orange",
-                ":hover": {
-                  background: "rgb(127, 182, 127)",
-                },
-              }}
-            >
-              <AddIcon />
-            </Fab>
-            <HighlightOffIcon
-              className={classes.x}
-              onClick={props.closeCreateEvent}
-            />
-          </div>
-        }
+        <div className={classes.createEventsButtons}>
+          <HighlightOffIcon
+            className={classes.x}
+            onClick={props.closeCreateEvent}
+          ></HighlightOffIcon>
+          <Fab
+            onClick={submitEvent}
+            disabled={!isSubmitAllowed}
+            className={classes.addButton}
+            // sx={{
+            //   border: "3px solid orange",
+            //   hover: {
+            //     background: "rgb(127, 182, 127)",
+            //   },
+            // }}
+          >
+            <AddIcon />
+          </Fab>
+        </div>
       </form>
     </div>
   );

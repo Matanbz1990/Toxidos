@@ -77,15 +77,37 @@ const Month = (props) => {
                   brideChairHour={eventItem.brideChairHour}
                   managerRemarks={eventItem.managerRemarks}
                   isDj={eventItem.isDj}
+                  isClosed={eventItem.isClosed}
                   dressCode={eventItem.dressCode}
                   imEshkachech={eventItem.imEshkachech}
-                  breakinGglassSong={eventItem.breakinGglassSong}
+                  breakingGlassSong={eventItem.breakingGlassSong}
                   givenPrice={eventItem.givenPrice}
-                  remarks={eventItem.remarks}
                   onDelete={props.deleteHandler}
                   eventIsEdittedHandler={props.eventIsEdittedHandler}
                   isAuthenticated={props.isAuthenticated}
                   onCloseTheCreateEvent={props.closeTheCreateEvent}
+                  amountInvited={eventItem.amountInvited}
+                  receptionMusicHour={eventItem.receptionMusicHour}
+                  receptionMusicType={eventItem.receptionMusicType}
+                  chupaHour={eventItem.chupaHour}
+                  chupaEnteranceSong={eventItem.chupaEnteranceSong}
+                  brideFriendsCharacter={eventItem.brideFriendsCharacter}
+                  groomFriendsCharacter={eventItem.groomFriendsCharacter}
+                  breakingGlassTiming={eventItem.breakingGlassTiming}
+                  firstDancingRoundDuration={
+                    eventItem.firstDancingRoundDuration
+                  }
+                  firstDancingRoundMusicType={
+                    eventItem.firstDancingRoundMusicType
+                  }
+                  secondDancingRoundDuration={
+                    eventItem.secondDancingRoundDuration
+                  }
+                  secondDancingRoundMusicType={
+                    eventItem.secondDancingRoundMusicType
+                  }
+                  contactManName={eventItem.contactManName}
+                  contactManPhone={eventItem.contactManPhone}
                 />
               )}
             </div>

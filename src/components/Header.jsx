@@ -1,4 +1,5 @@
 import React from "react";
+import Rings from "../assets/rings.png";
 // import Img from "../assets/toxidos.jpg";
 // import { useState } from "react";
 import classes from "./Header.module.css";
@@ -35,9 +36,10 @@ function Header(props) {
   return (
     <header>
       <div className={classes.container2}>
-        {/* <img src={Img} alt="img"></img> */}
+        <img src={Rings} alt="img"></img>
         <div className={classes.text}>
           <h1> Weddiment </h1>
+
           <p className={classes.ptext}>
             {" "}
             weddings and events mangment platform for bands managers

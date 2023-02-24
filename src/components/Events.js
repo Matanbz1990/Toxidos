@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Month from "./Month";
 import EventFilter from "./EventFilter";
 import classes from "./Events.module.css";
+import firebase from "firebase/compat/app";
+import { useAuth } from "../contexts/AuthContext";
 
 const Events = (props) => {
   const [events, setEvents] = useState([]);
@@ -10,25 +12,28 @@ const Events = (props) => {
   const [showEvents, setShowEvents] = useState(true);
   const [eventYear, setEventYear] = useState("2023");
   const [eventDisplayed, setEventsDisplayed] = useState("2023");
-
+  const { currentUser } = useAuth();
   const months = [];
-
+  const db = firebase.firestore();
   useEffect(() => {
     let array = [];
-    fetch("https://toxidos-24688-default-rtdb.firebaseio.com/.json").then(
-      (res) => {
-        res.json().then((data) => {
-          let i = 0;
-          for (let key in data.events) {
-            array.push(data.events[key].event);
-            array[i].id = key;
-            i++;
-          }
-          setEvents(array);
+    let arrOfID = [];
+    console.log(currentUser.email);
+    db.collection(currentUser.email + "events")
+      .get()
+      .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          arrOfID.push(doc.id);
+          array.push(doc.data());
         });
-      }
-    );
-  }, [props.eventAdded, eventRemoved, eventHasEditted]);
+
+        for (let i = 0; i < arrOfID.length; i++) {
+          array[i].id = arrOfID[i];
+        }
+        setEvents(array);
+      });
+  }, [props.eventAdded, eventRemoved, eventHasEditted, currentUser.email, db]);
+
   const filteredYearArrayEvent = events.filter((event) => {
     return event.date.slice(0, 4) === eventYear;
   });
@@ -59,26 +64,23 @@ const Events = (props) => {
     }, 3000);
   };
 
-  function deleteEvent(id) {
-    fetch(
-      "https://toxidos-24688-default-rtdb.firebaseio.com/events/" +
-        id +
-        ".json",
-      {
-        method: "DELETE",
-      }
-    ).then((res) => {
-      if (events.length <= 1) {
-        setShowEvents(true);
-      }
-      setEventRemoved(true);
-      setTimeout(() => {
-        setEventRemoved(false);
-      }, 2000);
-      if (events.length <= 1) {
-        setShowEvents(false);
-      }
-    });
+  async function deleteEvent(id) {
+    await db
+      .collection(currentUser.email + "events")
+      .doc(id)
+      .delete()
+      .then(() => {
+        if (events.length <= 1) {
+          setShowEvents(true);
+        }
+        setEventRemoved(true);
+        setTimeout(() => {
+          setEventRemoved(false);
+        }, 2000);
+        if (events.length <= 1) {
+          setShowEvents(false);
+        }
+      });
   }
   function randomStr() {
     let result = "";

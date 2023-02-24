@@ -5,7 +5,7 @@
 
 .modal form {
   position: relative;
-  width: 30rem;
+  width: 34rem;
   margin: 30px auto 20px auto;
   background: rgba(255, 255, 255, 0.63);
   padding: 15px;
@@ -22,19 +22,23 @@ form h1 {
 }
 form input {
   height: 30px;
-  margin-left: 10px;
-  /* width: 10px; */
-  flex-grow: 0.4;
+  border-radius: 7px;
+  font-size: large;
+  margin-right: 20px;
+  /* margin-left: 10px; */
+  min-width: 300px;
+  max-width: 300px;
+  align-items: baseline;
+  /* flex-grow: 0.4; */
 }
 label {
   color: rgb(240, 201, 76);
+  margin-left: 20px;
 }
 .inputlabel {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  /* justify-content: space-around; */
 }
 form.inputsGroup {
   position: relative;
@@ -58,8 +62,9 @@ form button:hover {
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
-form p {
+.modal form p {
   margin-top: 30px;
+  font-size: medium;
 }
 .littleButton {
   margin-top: 20px;

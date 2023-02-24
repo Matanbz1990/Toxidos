@@ -10,7 +10,7 @@ export function useAuth() {
 // console.log(auth);
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState("matan");
+  const [currentUser, setCurrentUser] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,12 +28,16 @@ export function AuthProvider({ children }) {
     console.log("login");
     return auth.signInWithEmailAndPassword(email, password);
   };
-  const logout = (email, password) => {
+  const logout = () => {
     console.log("logout");
     return auth.signOut();
   };
+  const resetPassword = (email) => {
+    console.log("reset password");
+    return auth.sendPasswordResetEmail(email);
+  };
 
-  const value = { currentUser, login, signup, logout };
+  const value = { currentUser, login, signup, logout, resetPassword };
 
   return (
     <AuthContext.Provider value={value}>

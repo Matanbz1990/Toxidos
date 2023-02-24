@@ -1,4 +1,4 @@
-.button1 {
+button.button1 {
   border-radius: 20px;
   height: 70px;
   width: 200px;
@@ -9,7 +9,7 @@
   margin-top: 30px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
-.button1:hover {
+button.button1:hover {
   background-color: rgb(240, 201, 76);
   color: rgb(0, 0, 0);
   cursor: pointer;
@@ -21,9 +21,10 @@
 h1 {
   margin-top: 100px;
   margin-top: 40px;
-  color: rgb(105, 81, 1);
+  color: rgb(240, 201, 76);
 }
 
 .icons {
   text-align: center;
+  margin: auto;
 }

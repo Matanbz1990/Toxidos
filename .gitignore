@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 firebase.js
+AdditionalContent.js
+AdditionalContent.module.css
 
 # testing
 /coverage
