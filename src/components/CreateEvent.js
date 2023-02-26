@@ -482,12 +482,6 @@ function CreateEvent(props) {
             onClick={submitEvent}
             disabled={!isSubmitAllowed}
             className={classes.addButton}
-            // sx={{
-            //   border: "3px solid orange",
-            //   hover: {
-            //     background: "rgb(127, 182, 127)",
-            //   },
-            // }}
           >
             <AddIcon />
           </Fab>

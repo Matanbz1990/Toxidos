@@ -1,6 +1,5 @@
 import Modal from "@mui/material/Modal";
 import { useState, useEffect } from "react";
-import Fab from "@mui/material/Fab";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import classes from "./EditEvent.module.css";
 import firebase from "firebase/compat/app";
@@ -37,6 +36,7 @@ const EditEvent = (props) => {
     secondDancingRoundMusicType: props.currentEvent.secondDancingRoundMusicType,
     contactManName: props.currentEvent.contactManName,
     contactManPhone: props.currentEvent.contactManPhone,
+    user: currentUser.uid,
   });
   const db = firebase.firestore();
   let isDj;
@@ -96,10 +96,7 @@ const EditEvent = (props) => {
 
   function submitEvent(e) {
     e.preventDefault();
-    db.collection(currentUser.email + "events")
-      .doc(event.id)
-      .update(event)
-      .then();
+    db.collection("events").doc(currentUser.id).update(event).then();
 
     props.eventIsEdittedHandler();
     props.onCloseEdit();
@@ -112,7 +109,7 @@ const EditEvent = (props) => {
     >
       <div>
         <form className={classes.editEvent}>
-          <h3>Edit Event</h3>
+          <h2>Edit Event</h2>
           <div className={classes.container}>
             <div className={classes.column1}>
               <div className={classes.wrap}>
@@ -482,13 +479,12 @@ const EditEvent = (props) => {
               </div>
             </div>
           </div>
-
-          <div>
-            <Fab onClick={submitEvent}>save changes</Fab>
+          <div className={classes.editButtons}>
             <HighlightOffIcon
               className={classes.x}
               onClick={props.onCloseEdit}
             />
+            <button onClick={submitEvent}>save changes</button>
           </div>
         </form>
       </div>

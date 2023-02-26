@@ -9,8 +9,8 @@ import ForgetPassword from "./components/ForgetPassword";
 import CreateEvent from "./components/CreateEvent";
 import { useAuth } from "./contexts/AuthContext";
 import firebase from "firebase/compat/app";
-
 import Home from "./components/Home";
+
 function App() {
   const [eventAdded, setEventAdded] = useState(false);
   const [signUpIsOpen, setSignUpIsOpen] = useState(false);

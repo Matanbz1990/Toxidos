@@ -17,9 +17,11 @@ const Events = (props) => {
   const db = firebase.firestore();
   useEffect(() => {
     let array = [];
+
     let arrOfID = [];
     console.log(currentUser.email);
-    db.collection(currentUser.email + "events")
+    db.collection("users")
+      .doc(currentUser.uid)
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {

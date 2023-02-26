@@ -26,6 +26,9 @@ export default function Signup(props) {
     try {
       setError("");
 
+      // const cred =       await signup(emailRef.current.value, passwordRef.current.value);
+      // saveCred(cred);
+
       await signup(emailRef.current.value, passwordRef.current.value);
       props.setIsAuthenticated(true);
       closeSignUp();
