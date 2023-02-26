@@ -36,7 +36,6 @@ const EditEvent = (props) => {
     secondDancingRoundMusicType: props.currentEvent.secondDancingRoundMusicType,
     contactManName: props.currentEvent.contactManName,
     contactManPhone: props.currentEvent.contactManPhone,
-    user: currentUser.uid,
   });
   const db = firebase.firestore();
   let isDj;
