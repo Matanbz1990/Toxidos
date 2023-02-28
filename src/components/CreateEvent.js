@@ -82,7 +82,6 @@ function CreateEvent(props) {
   }
 
   function submitEvent(e) {
-    console.log(event);
     props.onAdd(event);
     setEvent({
       date: "",

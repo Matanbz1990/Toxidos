@@ -20,25 +20,28 @@ const Events = (props) => {
   const [showEvents, setShowEvents] = useState(true);
   const [eventYear, setEventYear] = useState("2023");
   const [eventDisplayed, setEventsDisplayed] = useState("2023");
-  const { currentUser } = useAuth();
-  const months = [];
   const eventsCollectionRef = collection(db, "events");
-  const q = query(eventsCollectionRef, where("userId", "==", currentUser.uid));
+  const { currentUser } = useAuth();
+
+  const [q, setQ] = useState(
+    query(eventsCollectionRef, where("userId", "==", currentUser.uid))
+  );
+  // const q = query(eventsCollectionRef, where("userId", "==", currentUser.uid));
+
+  const months = [];
 
   useEffect(() => {
-    let array = [];
-    let arrOfID = [];
     const getData = async () => {
-      console.log(currentUser.uid);
+      let array = [];
+      let arrOfID = [];
       const querySnapshot = await getDocs(q);
 
       if (querySnapshot.empty) {
         console.log("No matching documents.");
+        setQ(""); //just becouse i have to use q as a state!
         return;
       }
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
-
         arrOfID.push(doc.id);
         array.push(doc.data());
       });
@@ -49,7 +52,7 @@ const Events = (props) => {
       setEvents(array);
     };
     getData();
-  }, [props.eventAdded, eventRemoved, eventHasEditted, currentUser]);
+  }, [q]);
 
   const filteredYearArrayEvent = events.filter((event) => {
     return event.date.slice(0, 4) === eventYear;

@@ -202,7 +202,7 @@ function Event(props) {
               </p>
             </div>
             <div className={classes.wrap}>
-              <label>First dancing round duration:</label>
+              <label>First dancing round duration (min.):</label>
               <p>
                 <strong>{props.firstDancingRoundDuration}</strong>
               </p>
@@ -214,7 +214,7 @@ function Event(props) {
               </p>
             </div>
             <div className={classes.wrap}>
-              <label>Second dancing round duration:</label>
+              <label>Second dancing round duration (min.):</label>
               <p>
                 <strong>{props.secondDancingRoundDuration}</strong>
               </p>

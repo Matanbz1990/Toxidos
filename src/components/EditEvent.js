@@ -2,9 +2,8 @@ import Modal from "@mui/material/Modal";
 import { useState, useEffect } from "react";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import classes from "./EditEvent.module.css";
-import { useAuth } from "../contexts/AuthContext";
 import { db } from "../firebase";
-import { collection, updateDoc, doc } from "firebase/firestore";
+import { updateDoc, doc } from "firebase/firestore";
 
 const EditEvent = (props) => {
   const [event, setCurrentEvent] = useState({
@@ -47,7 +46,6 @@ const EditEvent = (props) => {
   const [karlibachChecked, setKarlibachChecked] = useState(false);
   const [closedChecked, setClosedChecked] = useState(false);
   const [reservedChecked, setReservedChecked] = useState(false);
-  const { currentUser } = useAuth();
   useEffect(() => {
     if (event.imEshkachech === "shweki") setShwekiChecked(true);
     if (event.imEshkachech === "karlibach") setKarlibachChecked(true);

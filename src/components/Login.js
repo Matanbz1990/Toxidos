@@ -8,7 +8,7 @@ export default function Login(props) {
   const [loading, setLoading] = useState(false);
   let emailRef = useRef();
   let passwordRef = useRef();
-  const { login, currentUser } = useAuth();
+  const { login } = useAuth();
 
   const submitLogin = async (e) => {
     e.preventDefault();

@@ -19,7 +19,6 @@ function App() {
   const [forgetPasswordIsOpen, setForgetPasswordIsOpen] = useState(false);
   const [showCreateEvent, setShowCreateEvent] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [bandName, setbandName] = useState("");
   const { currentUser } = useAuth();
 
   const eventsCollectionRef = collection(db, "events");
@@ -34,7 +33,7 @@ function App() {
         // if (currentUser)
       });
     });
-  }, [currentUser]);
+  }, [currentUser, usersCollectionRef]);
 
   function addEvent(newEvent) {
     addDoc(eventsCollectionRef, newEvent)
