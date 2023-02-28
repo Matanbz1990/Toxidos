@@ -8,7 +8,7 @@ export default function Login(props) {
   const [loading, setLoading] = useState(false);
   let emailRef = useRef();
   let passwordRef = useRef();
-  const { login } = useAuth();
+  const { login, currentUser } = useAuth();
 
   const submitLogin = async (e) => {
     e.preventDefault();
@@ -16,6 +16,7 @@ export default function Login(props) {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
+
       props.setIsAuthenticated(true);
       closeLogin();
     } catch {
@@ -35,6 +36,7 @@ export default function Login(props) {
     props.handleLoginIsOpen();
     props.handleForgetPasswordIsOpen();
   };
+
   return (
     <Modal
       open={props.loginIsOpen}

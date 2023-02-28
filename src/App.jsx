@@ -8,7 +8,8 @@ import Login from "./components/Login";
 import ForgetPassword from "./components/ForgetPassword";
 import CreateEvent from "./components/CreateEvent";
 import { useAuth } from "./contexts/AuthContext";
-import firebase from "firebase/compat/app";
+import { db } from "./firebase";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import Home from "./components/Home";
 
 function App() {
@@ -18,28 +19,25 @@ function App() {
   const [forgetPasswordIsOpen, setForgetPasswordIsOpen] = useState(false);
   const [showCreateEvent, setShowCreateEvent] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [bandName, setbandName] = useState("");
   const { currentUser } = useAuth();
 
+  const eventsCollectionRef = collection(db, "events");
+  const usersCollectionRef = collection(db, "users");
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!currentUser) {
       closeTheCreateEvent();
     }
-  }, [isAuthenticated]);
-  const db = firebase.firestore();
-  // console.log(currentUser.email);
 
-  // useEffect(() => {
-  //   db.collection("events")
-  //     .get()
-  //     .then((snapshot) => {
-  //       snapshot.docs.forEach((doc) => {
-  //         console.log(doc.data());
-  //       });
-  //     });
-  // }, []);
+    getDocs(usersCollectionRef).then((snapshot) => {
+      snapshot.docs.forEach((doc) => {
+        // if (currentUser)
+      });
+    });
+  }, [currentUser]);
+
   function addEvent(newEvent) {
-    db.collection(currentUser.email + "events")
-      .add(newEvent)
+    addDoc(eventsCollectionRef, newEvent)
       .then(() => {
         setEventAdded(true);
         setTimeout(() => {
@@ -74,9 +72,7 @@ function App() {
         handleLoginIsOpen={handleLoginIsOpen}
         setLoginIsOpen={setLoginIsOpen}
       />
-      {/* <div className={classes.icons}>
-        <AdditionalContent />
-      </div> */}
+
       {!isAuthenticated && <Home handleSignUpIsOpen={handleSignUpIsOpen} />}
       {!showCreateEvent && isAuthenticated && (
         <div className={classes.buttonContainer}>
@@ -85,7 +81,6 @@ function App() {
             onClick={() => {
               setShowCreateEvent(true);
             }}
-            // disabled={!isAuthenticated}
           >
             Create event
           </button>

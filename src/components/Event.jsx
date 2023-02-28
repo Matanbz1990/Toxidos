@@ -222,7 +222,7 @@ function Event(props) {
             <div className={classes.wrap}>
               <label>Second dancing round MusicType:</label>
               <p>
-                <strong>{props.SecondDancingRoundMusicType}</strong>
+                <strong>{props.secondDancingRoundMusicType}</strong>
               </p>
             </div>
             <div className={classes.wrap}>

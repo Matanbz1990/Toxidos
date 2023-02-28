@@ -2,8 +2,9 @@ import Modal from "@mui/material/Modal";
 import { useState, useEffect } from "react";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import classes from "./EditEvent.module.css";
-import firebase from "firebase/compat/app";
 import { useAuth } from "../contexts/AuthContext";
+import { db } from "../firebase";
+import { collection, updateDoc, doc } from "firebase/firestore";
 
 const EditEvent = (props) => {
   const [event, setCurrentEvent] = useState({
@@ -37,7 +38,6 @@ const EditEvent = (props) => {
     contactManName: props.currentEvent.contactManName,
     contactManPhone: props.currentEvent.contactManPhone,
   });
-  const db = firebase.firestore();
   let isDj;
   if (event.isDj === "yes") isDj = true;
   else isDj = false;
@@ -95,7 +95,10 @@ const EditEvent = (props) => {
 
   function submitEvent(e) {
     e.preventDefault();
-    db.collection("events").doc(currentUser.id).update(event).then();
+    const docToUpdate = doc(db, "events", event.id);
+    updateDoc(docToUpdate, event).then(() => {
+      console.log("data updated");
+    });
 
     props.eventIsEdittedHandler();
     props.onCloseEdit();

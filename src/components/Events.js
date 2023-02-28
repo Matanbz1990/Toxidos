@@ -2,8 +2,16 @@ import { useState, useEffect } from "react";
 import Month from "./Month";
 import EventFilter from "./EventFilter";
 import classes from "./Events.module.css";
-import firebase from "firebase/compat/app";
 import { useAuth } from "../contexts/AuthContext";
+import { db } from "../firebase";
+import {
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+  query,
+  where,
+} from "firebase/firestore";
 
 const Events = (props) => {
   const [events, setEvents] = useState([]);
@@ -14,27 +22,34 @@ const Events = (props) => {
   const [eventDisplayed, setEventsDisplayed] = useState("2023");
   const { currentUser } = useAuth();
   const months = [];
-  const db = firebase.firestore();
+  const eventsCollectionRef = collection(db, "events");
+  const q = query(eventsCollectionRef, where("userId", "==", currentUser.uid));
+
   useEffect(() => {
     let array = [];
-
     let arrOfID = [];
-    console.log(currentUser.email);
-    db.collection("users")
-      .doc(currentUser.uid)
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          arrOfID.push(doc.id);
-          array.push(doc.data());
-        });
+    const getData = async () => {
+      console.log(currentUser.uid);
+      const querySnapshot = await getDocs(q);
 
-        for (let i = 0; i < arrOfID.length; i++) {
-          array[i].id = arrOfID[i];
-        }
-        setEvents(array);
+      if (querySnapshot.empty) {
+        console.log("No matching documents.");
+        return;
+      }
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+
+        arrOfID.push(doc.id);
+        array.push(doc.data());
       });
-  }, [props.eventAdded, eventRemoved, eventHasEditted, currentUser.email, db]);
+
+      for (let i = 0; i < arrOfID.length; i++) {
+        array[i].id = arrOfID[i];
+      }
+      setEvents(array);
+    };
+    getData();
+  }, [props.eventAdded, eventRemoved, eventHasEditted, currentUser]);
 
   const filteredYearArrayEvent = events.filter((event) => {
     return event.date.slice(0, 4) === eventYear;
@@ -67,22 +82,20 @@ const Events = (props) => {
   };
 
   async function deleteEvent(id) {
-    await db
-      .collection(currentUser.email + "events")
-      .doc(id)
-      .delete()
-      .then(() => {
-        if (events.length <= 1) {
-          setShowEvents(true);
-        }
-        setEventRemoved(true);
-        setTimeout(() => {
-          setEventRemoved(false);
-        }, 2000);
-        if (events.length <= 1) {
-          setShowEvents(false);
-        }
-      });
+    const docToUpdate = doc(db, "events", id);
+
+    await deleteDoc(docToUpdate).then(() => {
+      if (events.length <= 1) {
+        setShowEvents(true);
+      }
+      setEventRemoved(true);
+      setTimeout(() => {
+        setEventRemoved(false);
+      }, 2000);
+      if (events.length <= 1) {
+        setShowEvents(false);
+      }
+    });
   }
   function randomStr() {
     let result = "";

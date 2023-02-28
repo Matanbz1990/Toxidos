@@ -14,8 +14,10 @@ header {
   display: flex;
   align-items: last baseline;
 }
-.ptext {
+.text p {
   margin-left: 20px;
+  font-size: medium;
+  color: rgb(240, 201, 76);
 }
 header h1 {
   color: rgb(240, 201, 76);
@@ -23,6 +25,9 @@ header h1 {
   font-weight: 200;
   transition-duration: 0.4s;
   margin-top: 0;
+}
+header h5 {
+  margin-right: 20px;
 }
 
 .container2 img {
@@ -73,13 +78,9 @@ header h1 {
 .container4 {
   display: flex;
 }
-.container3 h3 {
-  color: rgb(240, 201, 76);
-}
 .container3 {
+  text-align: center;
   display: flex;
   align-items: last baseline;
-}
-.container3 h4 {
   color: rgb(240, 201, 76);
 }

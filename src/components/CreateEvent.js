@@ -3,8 +3,10 @@ import AddIcon from "@mui/icons-material/Add";
 import Fab from "@mui/material/Fab";
 import classes from "./CreateEvent.module.css";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-
+import { useAuth } from "../contexts/AuthContext";
 function CreateEvent(props) {
+  const { currentUser } = useAuth();
+
   const [event, setEvent] = useState({
     date: "",
     location: "",
@@ -34,7 +36,10 @@ function CreateEvent(props) {
     contactManPhone: "",
     givenPrice: "",
     managerRemarks: "",
+    band: "",
+    userId: currentUser.uid,
   });
+
   const [isDjChecked, setIsDjChecked] = useState(true);
   const [isSubmitAllowed, setIsSubmitAllowed] = useState(false);
   const getCurrentDate = () => {
