@@ -84,7 +84,6 @@ const Month = (props) => {
                   givenPrice={eventItem.givenPrice}
                   onDelete={props.deleteHandler}
                   eventIsEdittedHandler={props.eventIsEdittedHandler}
-                  isAuthenticated={props.isAuthenticated}
                   onCloseTheCreateEvent={props.closeTheCreateEvent}
                   amountInvited={eventItem.amountInvited}
                   receptionMusicHour={eventItem.receptionMusicHour}

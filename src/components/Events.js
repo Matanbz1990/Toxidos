@@ -29,6 +29,7 @@ const Events = (props) => {
   // const q = query(eventsCollectionRef, where("userId", "==", currentUser.uid));
 
   const months = [];
+  const emptyMessage = "No matching documents.";
 
   useEffect(() => {
     const getData = async () => {
@@ -37,7 +38,7 @@ const Events = (props) => {
       const querySnapshot = await getDocs(q);
 
       if (querySnapshot.empty) {
-        console.log("No matching documents.");
+        console.log(emptyMessage);
         setQ(""); //just becouse i have to use q as a state!
         return;
       }
@@ -121,7 +122,12 @@ const Events = (props) => {
         {eventHasEditted && <h2>Event has edited!</h2>}
       </div>
       <EventFilter selectedYearData={selectedEventYear} />
-      {eventDisplayed && <h2>there is no events this year yet</h2>}
+      {eventDisplayed && (
+        <div>
+          <h2>there is no events this year yet</h2>
+          <h2>{emptyMessage}</h2>
+        </div>
+      )}
       {showEvents &&
         months.map((currentMonth, index) => {
           if (currentMonth !== undefined)
@@ -131,7 +137,6 @@ const Events = (props) => {
                 index={index}
                 deleteHandler={deleteEvent}
                 key={randomStr()}
-                isAuthenticated={props.isAuthenticated}
                 closeTheCreateEvent={props.closeTheCreateEvent}
                 eventIsEdittedHandler={eventIsEdittedHandler}
               />

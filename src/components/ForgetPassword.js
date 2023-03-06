@@ -19,8 +19,6 @@ export default function ForgetPassword(props) {
       setError("");
 
       await resetPassword(emailRef.current.value);
-      //   props.setIsAuthenticated(true);
-      //   handleForgetPassword();
       setMessage("check your inbox for further instructions");
     } catch {
       setError("failed to reset password");

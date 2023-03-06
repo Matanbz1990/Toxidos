@@ -17,7 +17,6 @@ export default function Login(props) {
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
 
-      props.setIsAuthenticated(true);
       closeLogin();
     } catch {
       setError("Failed to log in");
@@ -73,16 +72,3 @@ export default function Login(props) {
     </Modal>
   );
 }
-
-// const [wrongPassword, setWrongPassword] = useState(false);
-
-// {
-//   wrongPassword && <h3>wrong password, try again</h3>;
-// }
-// if (userPassword === realPassword) {
-//   props.setIsAuthenticated(true);
-//   setUserPassword("");
-//   setWrongPassword(false);
-// } else {
-//   setWrongPassword(true);
-// }

@@ -11,11 +11,8 @@ function Signup(props) {
   const { signup, getUserData } = useAuth();
 
   let emailRef = useRef();
-  // let displayNamestate = useRef();
   let passwordRef = useRef();
   let validatePasswordRef = useRef();
-  // let bandName = displayNameRef.current.value;
-  // console.log(passwordRef.current.value);
   const submitSignUp = async (e) => {
     e.preventDefault();
 
@@ -30,14 +27,9 @@ function Signup(props) {
 
     try {
       setError("");
-
-      // const cred =       await signup(emailRef.current.value, passwordRef.current.value);
-      // saveCred(cred);
       console.log(bandName);
-
       await getUserData(bandName);
       await signup(emailRef.current.value, passwordRef.current.value);
-      props.setIsAuthenticated(true);
       closeSignUp();
     } catch {
       setError("failed to create an account");
@@ -55,7 +47,6 @@ function Signup(props) {
   };
   const onChangeBandName = (e) => {
     setBandName(e.target.value);
-    console.log(bandName);
   };
 
   // currentUser.band = bandName;

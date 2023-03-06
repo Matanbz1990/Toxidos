@@ -266,33 +266,32 @@ function Event(props) {
               >
                 close
               </button>
-              {props.isAuthenticated && (
-                <div>
-                  <button
-                    className={classes.button1}
-                    onClick={() => {
-                      setEditIsShowen(true);
-                      props.onCloseTheCreateEvent();
-                      console.log();
-                    }}
-                  >
-                    edit
-                  </button>
-                </div>
-              )}
-              <div className={classes.button1} onClick={shareData}>
-                <ShareIcon className={classes.share} />
-              </div>
-              {props.isAuthenticated && (
+
+              <div>
                 <button
                   className={classes.button1}
                   onClick={() => {
-                    props.onDelete(props.id);
+                    setEditIsShowen(true);
+                    props.onCloseTheCreateEvent();
+                    console.log();
                   }}
                 >
-                  <DeleteIcon />
+                  edit
                 </button>
-              )}
+              </div>
+
+              <div className={classes.button1} onClick={shareData}>
+                <ShareIcon className={classes.share} />
+              </div>
+
+              <button
+                className={classes.button1}
+                onClick={() => {
+                  props.onDelete(props.id);
+                }}
+              >
+                <DeleteIcon />
+              </button>
             </div>
           </div>
         </div>

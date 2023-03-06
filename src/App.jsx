@@ -18,7 +18,6 @@ function App() {
   const [loginIsOpen, setLoginIsOpen] = useState(false);
   const [forgetPasswordIsOpen, setForgetPasswordIsOpen] = useState(false);
   const [showCreateEvent, setShowCreateEvent] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { currentUser } = useAuth();
 
   const eventsCollectionRef = collection(db, "events");
@@ -29,9 +28,7 @@ function App() {
     }
 
     getDocs(usersCollectionRef).then((snapshot) => {
-      snapshot.docs.forEach((doc) => {
-        // if (currentUser)
-      });
+      snapshot.docs.forEach((doc) => {});
     });
   }, [currentUser, usersCollectionRef]);
 
@@ -64,16 +61,14 @@ function App() {
   return (
     <div className={classes.appContainer}>
       <Header
-        setIsAuthenticated={setIsAuthenticated}
-        isAuthenticated={isAuthenticated}
         key={Math.random()}
         handleSignUpIsOpen={handleSignUpIsOpen}
         handleLoginIsOpen={handleLoginIsOpen}
         setLoginIsOpen={setLoginIsOpen}
       />
 
-      {!isAuthenticated && <Home handleSignUpIsOpen={handleSignUpIsOpen} />}
-      {!showCreateEvent && isAuthenticated && (
+      {!currentUser && <Home handleSignUpIsOpen={handleSignUpIsOpen} />}
+      {!showCreateEvent && currentUser && (
         <div className={classes.buttonContainer}>
           <button
             className={classes.button1}
@@ -90,7 +85,6 @@ function App() {
           signUpIsOpen={signUpIsOpen}
           handleSignUpIsOpen={handleSignUpIsOpen}
           handleLoginIsOpen={handleLoginIsOpen}
-          setIsAuthenticated={setIsAuthenticated}
         />
       )}
       {loginIsOpen && (
@@ -99,18 +93,16 @@ function App() {
           handleLoginIsOpen={handleLoginIsOpen}
           handleSignUpIsOpen={handleSignUpIsOpen}
           handleForgetPasswordIsOpen={handleForgetPasswordIsOpen}
-          setIsAuthenticated={setIsAuthenticated}
         />
       )}
       {forgetPasswordIsOpen && (
         <ForgetPassword
           handleForgetPasswordIsOpen={handleForgetPasswordIsOpen}
-          setIsAuthenticated={setIsAuthenticated}
           handleLoginIsOpen={handleLoginIsOpen}
           forgetPasswordIsOpen={forgetPasswordIsOpen}
         />
       )}
-      {isAuthenticated && showCreateEvent && (
+      {currentUser && showCreateEvent && (
         <CreateEvent
           onAdd={addEvent}
           closeCreateEvent={closeTheCreateEvent}
@@ -118,11 +110,10 @@ function App() {
           key={Math.random()}
         />
       )}
-      {isAuthenticated && (
+      {currentUser && (
         <Events
           eventAdded={eventAdded}
           closeTheCreateEvent={closeTheCreateEvent}
-          isAuthenticated={isAuthenticated}
           key={Math.random()}
         />
       )}

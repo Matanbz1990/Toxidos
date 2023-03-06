@@ -16,11 +16,10 @@ export function AuthProvider({ children }) {
   let nameOfBand;
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
 
       setLoading(false);
-      return unSubscribe;
     });
   }, []);
 
@@ -42,9 +41,11 @@ export function AuthProvider({ children }) {
   const getUserData = (data) => {
     nameOfBand = data;
   };
-  const login = (email, password) => {
+  const login = async (email, password) => {
     console.log("login");
-    return auth.signInWithEmailAndPassword(email, password);
+
+    await auth.signInWithEmailAndPassword(email, password);
+    await auth.setPersistence("local");
   };
   const logout = () => {
     console.log("logout");

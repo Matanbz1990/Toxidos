@@ -1,14 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
-
 import Rings from "../assets/rings.png";
-// import Img from "../assets/toxidos.jpg";
-// import { useState } from "react";
 import classes from "./Header.module.css";
 import { useAuth } from "../contexts/AuthContext";
 import { db } from "../firebase";
-
 import { useState } from "react";
+
 function Header(props) {
   const [error, setError] = useState("");
   const [bandName, setBandName] = useState("");
@@ -37,12 +34,9 @@ function Header(props) {
     setError("");
     try {
       await logout();
-      props.setIsAuthenticated(false);
-      // openLogin();
     } catch {
       setError("Failed to log out");
     }
-    props.setIsAuthenticated(false);
     setBandName("");
   };
 
@@ -60,12 +54,11 @@ function Header(props) {
           <h1> Weddiment </h1>
 
           <p className={classes.ptext}>
-            {" "}
             weddings and events mangment platform for bands managers
           </p>
         </div>
       </div>
-      {!props.isAuthenticated && (
+      {!currentUser && (
         <div className={classes.container3}>
           <button type="submit" onClick={openLogin}>
             Log in
@@ -75,7 +68,7 @@ function Header(props) {
           </button>
         </div>
       )}
-      {props.isAuthenticated && (
+      {currentUser && (
         <form className={classes.container3} onSubmit={handleLogout}>
           <h3>{bandName}</h3>
           <h5>{currentUser.email} is connected </h5>
