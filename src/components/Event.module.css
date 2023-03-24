@@ -88,3 +88,7 @@ p {
   font-size: x-large;
   text-align: center;
 }
+.dateIsPass {
+  background-color: rgb(133, 97, 97);
+  border-radius: 7px;
+}

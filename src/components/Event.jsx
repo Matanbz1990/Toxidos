@@ -1,26 +1,52 @@
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import classes from "./Event.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import EditEvent from "./EditEvent";
 import ShareIcon from "@mui/icons-material/Share";
 
 function Event(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [editIsShowen, setEditIsShowen] = useState(false);
+  const [isTheDatePass, setIsTheDatePass] = useState(false);
   const onCloseEditEvent = () => {
     setEditIsShowen(false);
   };
 
+  const dateHasPassedClasses = `${isTheDatePass ? classes.dateIsPass : ""}`;
   const prevContainerClasses = `${classes.prevContainer} ${
-    props.isClosed === "reserved" ? classes.reserved : ""
+    !isTheDatePass && props.isClosed === "reserved" ? classes.reserved : ""
   }`;
+
   const shareData = () => {};
+
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
 
   const day = props.date.slice(8, 10);
   const month = props.date.slice(5, 7);
   const year = props.date.slice(0, 4);
   const israeliDate = day + "." + month + "." + year;
+
+  let isDatePass;
+
+  useEffect(() => {
+    if (yyyy > +year) isDatePass = true;
+    if (yyyy < +year) isDatePass = false;
+    if (yyyy === +year) {
+      if (+mm > +month) isDatePass = true;
+      if (+mm < +month) isDatePass = false;
+      if (+mm === +month) {
+        if (+dd > +day) isDatePass = true;
+        if (+dd <= +day) isDatePass = false;
+      }
+    }
+    if (isDatePass) setIsTheDatePass(true);
+    else setIsTheDatePass(false);
+  }, [isTheDatePass]);
+
   // const arrOfLabels1 = [
   //   "Date:",
   //   "Location:",
@@ -66,18 +92,20 @@ function Event(props) {
         />
       )}
       {!isOpen && (
-        <div className={prevContainerClasses}>
-          <h3>{israeliDate}</h3>
-          <h3>{props.location}</h3>
-          <h3>{props.isClosed}</h3>
-          <button
-            className={classes.button1}
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
-          >
-            open
-          </button>
+        <div className={dateHasPassedClasses}>
+          <div className={prevContainerClasses}>
+            <h3>{israeliDate}</h3>
+            <h3>{props.location}</h3>
+            <h3>{props.isClosed}</h3>
+            <button
+              className={classes.button1}
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              open
+            </button>
+          </div>
         </div>
       )}
 

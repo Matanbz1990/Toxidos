@@ -18,6 +18,7 @@ const Events = (props) => {
   const [eventRemoved, setEventRemoved] = useState(false);
   const [eventHasEditted, setEventHasEditted] = useState(false);
   const [showEvents, setShowEvents] = useState(true);
+  const today = new Date();
   const [eventYear, setEventYear] = useState("2023");
   const [eventDisplayed, setEventsDisplayed] = useState("2023");
   const eventsCollectionRef = collection(db, "events");
@@ -53,7 +54,7 @@ const Events = (props) => {
       setEvents(array);
     };
     getData();
-  }, [q]);
+  }, [q, eventHasEditted]);
 
   const filteredYearArrayEvent = events.filter((event) => {
     return event.date.slice(0, 4) === eventYear;

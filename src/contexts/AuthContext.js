@@ -23,9 +23,7 @@ export function AuthProvider({ children }) {
     });
   }, []);
 
-  useEffect(() => {
-    // console.log(nameOfBand);
-  }, [nameOfBand]);
+  useEffect(() => {}, [nameOfBand]);
   const signup = async (email, password) => {
     return await auth
       .createUserWithEmailAndPassword(email, password)
