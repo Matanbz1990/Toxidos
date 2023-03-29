@@ -31,3 +31,11 @@
   padding: 0.5rem 3rem;
   border-radius: 6px;
 }
+@media (max-width: 800px) {
+  .eventFilter {
+    width: 80%;
+  }
+  .eventFilterControl {
+    flex-direction: column;
+  }
+}

@@ -10,7 +10,7 @@ export default function ColorsMap() {
       </div>
       <div className={classes.colorCss}>
         <div className={classes.square1}> </div>
-        <h4>event is close</h4>
+        <h4>event is closed</h4>
       </div>
       <div className={classes.colorCss}>
         <div className={classes.square3}> </div>

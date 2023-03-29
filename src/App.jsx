@@ -6,7 +6,6 @@ import Footer from "./components/Footer";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import ForgetPassword from "./components/ForgetPassword";
-import ColorsMap from "./components/ColorsMap";
 import CreateEvent from "./components/CreateEvent";
 import { useAuth } from "./contexts/AuthContext";
 import { db } from "./firebase";
@@ -46,6 +45,9 @@ function App() {
       });
   }
 
+  const openTheCreateEvent = () => {
+    setShowCreateEvent(true);
+  };
   const closeTheCreateEvent = () => {
     setShowCreateEvent(false);
   };
@@ -79,10 +81,9 @@ function App() {
           >
             Create event
           </button>
-
-          <ColorsMap />
         </div>
       )}
+
       {signUpIsOpen && (
         <Signup
           signUpIsOpen={signUpIsOpen}
@@ -109,6 +110,7 @@ function App() {
         <CreateEvent
           onAdd={addEvent}
           closeCreateEvent={closeTheCreateEvent}
+          openTheCreateEvent={openTheCreateEvent}
           // eventIsAdded={eventAdded}
           key={Math.random()}
         />

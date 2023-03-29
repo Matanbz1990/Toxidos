@@ -17,6 +17,15 @@ button.button1:hover {
 
 .buttonContainer {
   text-align: center;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* width: 50%; */
+  /* margin-left: 700px; */
+}
+.buttonContainer button {
+  /* flex: 1; */
+  /* position: fixed; */
+  /* margin: auto; */
 }
 h1 {
   margin-top: 100px;
@@ -28,41 +37,11 @@ h1 {
   text-align: center;
   margin: auto;
 }
-.colorsMap {
-  color: rgb(240, 201, 76);
-  /* border-end-end-radius: 80px 80px; */
-  border: solid 1px rgb(240, 201, 76);
-  border-radius: 7px;
-  width: 16%;
-  margin: auto;
-  position: fixed;
-  top: 8rem;
-  right: 8rem;
 
-  padding: 20px 0;
-}
-.colorCss {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 30px;
-}
-
-.square1 {
-  width: 15px;
-  height: 15px;
-  background-color: rgb(0, 0, 0);
-}
-.square2 {
-  width: 15px;
-  height: 15px;
-  background-color: rgb(95, 27, 27);
-}
-.square3 {
-  width: 15px;
-  height: 15px;
-  background-color: rgb(133, 97, 97);
-}
-h4 {
-  text-align: left;
+@media (max-width: 1500px) {
+  button.button1:hover {
+    background-color: rgb(240, 201, 76);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+  }
 }

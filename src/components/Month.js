@@ -1,6 +1,7 @@
 import Event from "./Event";
 import classes from "./Month.module.css";
 import { useState } from "react";
+import ColorsMap from "./ColorsMap";
 
 const Month = (props) => {
   const [monthIsOpen, setMonthIsOpen] = useState(false);
@@ -64,7 +65,7 @@ const Month = (props) => {
 
         <div className={classes.displayEvents}>
           {monthItem.map((eventItem) => (
-            <div key={eventItem.id}>
+            <div key={eventItem.id} className={classes.eventUnit}>
               {monthIsOpen && (
                 <Event
                   id={eventItem.id}
@@ -111,6 +112,7 @@ const Month = (props) => {
               )}
             </div>
           ))}
+          {monthIsOpen && <ColorsMap key={Math.random()} />}
         </div>
       </div>
     </div>

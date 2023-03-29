@@ -1,14 +1,25 @@
 header {
+  width: 100%;
   background-color: rgb(0, 0, 0);
-  margin: auto -16px;
-  padding: 16px 32px;
+  margin: 0;
   transition-duration: 0.4s;
   display: flex;
   align-items: center;
   align-content: center;
   justify-content: space-between;
-  border-bottom: 2px red;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+header h1 {
+  color: rgb(240, 201, 76);
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+  transition-duration: 0.4s;
+  margin-top: 0;
+  font-size: 2rem;
+}
+header h5 {
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .text {
   display: flex;
@@ -19,32 +30,26 @@ header {
   font-size: medium;
   color: rgb(240, 201, 76);
 }
-header h1 {
-  color: rgb(240, 201, 76);
-  font-family: "McLaren", cursive;
-  font-weight: 200;
-  transition-duration: 0.4s;
-  margin-top: 0;
-}
-header h5 {
-  margin-right: 20px;
-}
 
-.container2 img {
-  height: 50px;
-  width: 50px;
-  border-radius: 10px;
+.containerImgH img {
+  height: 30px;
+  width: 30px;
+  border-radius: 7px;
   color: rgb(240, 201, 76);
   background-color: rgb(240, 201, 76);
   margin-right: 20px;
 }
-.container3 label {
-  color: rgb(240, 201, 76);
-}
-.container2 {
+.containerImgH {
   display: flex;
-
   align-items: center;
+  padding: 10px;
+  /* align-items: baseline; */
+}
+.container3 {
+  text-align: center;
+  display: flex;
+  align-items: last baseline;
+  color: rgb(240, 201, 76);
 }
 .container3 input {
   margin: 0 10px;
@@ -75,12 +80,33 @@ header h5 {
   font-family: inherit;
   padding: 10px;
 }
+.container3 label {
+  color: rgb(240, 201, 76);
+}
 .container4 {
   display: flex;
 }
-.container3 {
-  text-align: center;
-  display: flex;
-  align-items: last baseline;
-  color: rgb(240, 201, 76);
+
+@media (max-width: 1064px) {
+  header {
+    display: block;
+  }
+  .container3 {
+    justify-content: space-around;
+  }
+  img {
+    width: 40%;
+    height: 40%;
+  }
+  button {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 667px) {
+  .container3 {
+    display: block;
+  }
+  header h1 {
+    font-size: 3rem;
+  }
 }

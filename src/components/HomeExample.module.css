@@ -1,6 +1,6 @@
 .container {
   display: block;
-  width: 700px;
+  width: 80%;
   padding: 20px 20px 20px 40px;
   background-color: rgb(36, 34, 34);
   background: rgb(0, 0, 0);
@@ -16,4 +16,10 @@
 }
 li {
   margin-top: 8px;
+}
+@media (max-width: 800px) {
+  .container {
+    margin-top: 20px;
+    margin-right: 0;
+  }
 }

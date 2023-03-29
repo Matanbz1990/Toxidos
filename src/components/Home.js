@@ -28,13 +28,13 @@ export default function Home(props) {
           events and share it with your band members!
         </p>
         <div className={classes.details}>
-          <HomeExample text={list1} />
+          <HomeExample text={list1} className={classes.detail} />
           <div className="vertical"></div>
 
-          <HomeExample text={list2} />
+          <HomeExample text={list2} className={classes.detail} />
           <div className="vertical"></div>
 
-          <HomeExample text={list3} />
+          <HomeExample text={list3} className={classes.detail} />
         </div>
         <div className={classes.buttonContainer}>
           <button onClick={props.handleSignUpIsOpen}>Lets start!</button>

@@ -39,10 +39,10 @@ export default function ForgetPassword(props) {
     <Modal
       open={props.forgetPasswordIsOpen}
       onClose={handleForgetPassword}
-      className={classes.modal}
+      className={classes.forgatmodal}
     >
       <form onSubmit={submitForgetPassword}>
-        <h1>Password recovery</h1>
+        <h1>password reset</h1>
         {message && <p className={classes.goodMessage}>{message}</p>}
         <div className={classes.inputsGroup}>
           <div className={classes.inputlabelforget}>

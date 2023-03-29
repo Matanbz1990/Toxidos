@@ -8,7 +8,7 @@
   color: rgb(240, 201, 76);
   margin: auto;
   margin-top: 30px;
-  width: 80%;
+  /* width: 80%; */
   text-align: center;
 }
 
@@ -52,7 +52,7 @@
 }
 .text1 hr {
   /* display: block; */
-  margin: 50px 400px 50px 400px;
+  margin-top: 20px;
   border-style: inset;
   border: 3;
   border-color: rgb(240, 201, 76);
@@ -69,4 +69,38 @@
   height: 200px;
   /* position: absolute; */
   /* left: 50%; */
+}
+
+@media (max-width: 1464px) {
+  hr {
+    /* margin: 0; */
+  }
+}
+
+@media (max-width: 600px) {
+  .home .text1 h1 {
+    font-size: x-large;
+    height: 0;
+    visibility: hidden;
+    margin-bottom: 0;
+  }
+  .home p {
+    font-size: medium;
+  }
+}
+
+@media (max-width: 800px) {
+  .details {
+    flex-direction: column;
+    align-items: center;
+    color: rgb(240, 201, 76);
+    margin-top: 30px;
+    /* margin: 0; */
+    /* width: 80%; */
+    text-align: center;
+  }
+
+  .home button {
+    margin: 20px 0;
+  }
 }

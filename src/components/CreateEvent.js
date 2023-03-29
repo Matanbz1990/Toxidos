@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import AddIcon from "@mui/icons-material/Add";
-import Fab from "@mui/material/Fab";
+// import AddIcon from "@mui/icons-material/Add";
+
 import classes from "./CreateEvent.module.css";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { useAuth } from "../contexts/AuthContext";
@@ -116,8 +116,13 @@ function CreateEvent(props) {
     props.closeCreateEvent();
     e.preventDefault();
   }
-
+  // onClick={props.closeCreateEvent}
   return (
+    // <Modal
+    //   open={props.openTheCreateEvent}
+    //   onClose={props.closeCreateEvent}
+    //   className={classes.createmodal}
+    // >
     <div>
       <form className={classes.createEvent}>
         <h2>create event</h2>
@@ -398,56 +403,59 @@ function CreateEvent(props) {
 
             <div className={classes.wrap}>
               <label> the event is closed?:</label>
-
-              <div className={classes.radioInput}>
-                <label htmlFor="closed">closed</label>
-                <input
-                  type="radio"
-                  id="closed"
-                  name="isClosed"
-                  value="closed"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className={classes.radioInput}>
-                <label htmlFor="reserved">reserved</label>
-                <input
-                  type="radio"
-                  id="reserved"
-                  name="isClosed"
-                  value="reserved"
-                  onChange={handleChange}
-                />
+              <div className={classes.radioDiv}>
+                <div className={classes.radioInput}>
+                  <label htmlFor="closed">closed</label>
+                  <input
+                    type="radio"
+                    id="closed"
+                    name="isClosed"
+                    value="closed"
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className={classes.radioInput}>
+                  <label htmlFor="reserved">reserved</label>
+                  <input
+                    type="radio"
+                    id="reserved"
+                    name="isClosed"
+                    value="reserved"
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
             <div className={classes.wrap}>
               <label> Im Eshkachech:</label>
-
-              <div className={classes.radioInput}>
-                <label htmlFor="shweki"> Shweki</label>
-                <input
-                  type="radio"
-                  id="shweki"
-                  name="imEshkachech"
-                  value="shweki"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className={classes.radioInput}>
-                <label htmlFor="karlibach"> Karlibach</label>
-                <input
-                  type="radio"
-                  id="karlibach"
-                  name="imEshkachech"
-                  value="karlibach"
-                  onChange={handleChange}
-                />
+              <div className={classes.radioDiv}>
+                <div className={classes.radioInput}>
+                  <label htmlFor="shweki"> Shweki</label>
+                  <input
+                    type="radio"
+                    id="shweki"
+                    name="imEshkachech"
+                    value="shweki"
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className={classes.radioInput}>
+                  <label htmlFor="karlibach"> Karlibach</label>
+                  <input
+                    type="radio"
+                    id="karlibach"
+                    name="imEshkachech"
+                    value="karlibach"
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
             <div className={classes.wrap}>
               <label htmlFor="isDj">there is Dj?</label>
 
               <input
+                className={classes.isDj}
                 id="input"
                 type="checkbox"
                 name="isDj"
@@ -478,20 +486,25 @@ function CreateEvent(props) {
           </div>
         </div>
         <div className={classes.createEventsButtons}>
-          <HighlightOffIcon
-            className={classes.x}
-            onClick={props.closeCreateEvent}
-          ></HighlightOffIcon>
-          <Fab
-            onClick={submitEvent}
+          <div>
+            <HighlightOffIcon
+              fontSize="large"
+              className={classes.x}
+              onClick={props.closeCreateEvent}
+            ></HighlightOffIcon>
+          </div>
+          <button
+            fontSize="large"
             disabled={!isSubmitAllowed}
             className={classes.addButton}
+            onClick={submitEvent}
           >
-            <AddIcon />
-          </Fab>
+            <strong>Add</strong>
+          </button>
         </div>
       </form>
     </div>
+    // </Modal>
   );
 }
 

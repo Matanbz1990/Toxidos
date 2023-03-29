@@ -2,9 +2,12 @@
   display: flex;
   justify-content: space-between;
 }
+.createmodal {
+  margin-top: 100px;
+}
 form.createEvent {
   margin: auto;
-  width: 90rem;
+  width: 60%;
   background-color: rgb(36, 34, 34);
   border-radius: 10px;
   padding: 20px;
@@ -22,11 +25,21 @@ form.createEvent {
   margin-top: 5px;
   justify-content: space-between;
 }
-
-.wrap input,
-label {
-  display: block;
+.isDj {
+  width: 30px;
 }
+
+.createEvent input {
+  height: 25px;
+}
+.createEvent label {
+  color: rgb(240, 201, 76);
+  padding: 5px;
+}
+.createEvent .column2 label {
+  margin-left: 5px;
+}
+
 .createEvent.radioInput {
   display: block;
   margin: auto;
@@ -39,7 +52,7 @@ textarea {
 
 .x {
   color: rgb(240, 201, 76);
-  background-color: rgb(10, 8, 1);
+  /* background-color: rgb(10, 8, 1); */
 }
 .x:hover {
   background-color: rgb(240, 201, 76);
@@ -48,18 +61,103 @@ textarea {
   cursor: pointer;
 }
 .radioDiv {
+  display: flex;
+  justify-content: flex-end;
 }
+.radioInput {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: auto;
+  width: 80%;
+  margin-top: 5px;
+}
+.radioInput input {
+  width: 5rem;
+}
+
 .createEventsButtons {
   padding: 20px;
   display: flex;
   justify-content: space-between;
 }
+.css-mm42gz-MuiButtonBase-root-MuiFab-root {
+  background-color: rgb(240, 201, 76);
+  color: rgb(10, 8, 1);
+}
 .addButton {
   background-color: rgb(240, 201, 76);
   color: rgb(10, 8, 1);
+  border-radius: 50px;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: small;
+  font-weight: 400;
+  margin: 2px;
 }
 .addButton:hover {
   background-color: rgb(10, 8, 1);
   color: rgb(240, 201, 76);
   border: 3px solid rgb(240, 201, 76);
+  cursor: pointer;
+}
+.addButton:disabled {
+  background-color: rgb(170, 173, 177);
+  border: 3px solid rgb(170, 173, 177);
+}
+.addButton:disabled:hover {
+  color: black;
+}
+.createEventsButtons {
+  display: flex;
+  align-items: flex-end;
+}
+@media (max-width: 1600px) {
+  .container {
+    flex-direction: column;
+  }
+  .createEvent input {
+    max-width: 300px;
+    min-width: 250px;
+  }
+  .radioDiv {
+    flex-direction: column;
+  }
+  .css-i4bv87-MuiSvgIcon-root {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 1000px) {
+  .wrap {
+    flex-direction: column;
+  }
+
+  .createEvent input {
+    max-width: 200px;
+  }
+}
+@media (max-width: 700px) {
+  .radioDiv {
+    /* display: block; */
+    margin: auto;
+    align-items: baseline;
+    align-content: baseline;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 500px) {
+  .createEvent input {
+    margin: auto;
+    max-width: 150px;
+    min-width: 100px;
+    margin-top: 5px;
+    font-size: medium;
+  }
+  .createEvent label {
+    font-size: medium;
+    margin-top: 3px;
+    text-align: center;
+    margin: auto;
+  }
 }

@@ -1,39 +1,35 @@
-.modal {
+.signupmodal {
   margin-top: 20rem;
   text-align: center;
 }
 
-.modal form {
-  position: relative;
-  width: 34rem;
-  margin: 30px auto 20px auto;
-  background: rgba(255, 255, 255, 0.63);
+.signupmodal form {
+  width: 25%;
   padding: 15px;
+  position: relative;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.63);
   border-radius: 7px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
   color: rgb(240, 201, 76);
   background-color: rgb(36, 34, 34);
-  /* background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-3.png"); */
 }
-form h1 {
+.signupmodal form h1 {
   color: rgb(240, 201, 76);
   margin-bottom: 30px;
   margin-top: 20px;
+  font-size: 2rem;
 }
-form input {
-  height: 30px;
-  border-radius: 7px;
-  font-size: large;
-  margin-right: 20px;
-  /* margin-left: 10px; */
-  min-width: 300px;
+.signupmodal form input {
+  min-width: 250px;
   max-width: 300px;
   align-items: baseline;
-  /* flex-grow: 0.4; */
+  height: 30px;
 }
-label {
+.signupmodal label {
   color: rgb(240, 201, 76);
   margin-left: 20px;
+  text-align: left;
 }
 .inputlabel {
   display: flex;
@@ -62,7 +58,7 @@ form button:hover {
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
-.modal form p {
+.signupmodal form p {
   margin-top: 30px;
   font-size: medium;
 }
@@ -76,4 +72,29 @@ form button:hover {
   color: rgb(240, 201, 76);
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media (max-width: 1500px) {
+  .signupmodal form {
+    width: 75%;
+    padding: 15px;
+    margin-top: 0;
+  }
+  .signupmodal {
+    margin-top: 100px;
+  }
+  .signupmodalform input {
+    width: 80%;
+  }
+  .inputlabel {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .signupmodal.littleButton {
+    height: 30px;
+    width: 70px;
+  }
+  .signupmodal label {
+    font-size: larger;
+    margin-bottom: 20px;
+  }
 }

@@ -3,6 +3,7 @@ import Month from "./Month";
 import EventFilter from "./EventFilter";
 import classes from "./Events.module.css";
 import { useAuth } from "../contexts/AuthContext";
+
 import { db } from "../firebase";
 import {
   collection,
@@ -18,7 +19,7 @@ const Events = (props) => {
   const [eventRemoved, setEventRemoved] = useState(false);
   const [eventHasEditted, setEventHasEditted] = useState(false);
   const [showEvents, setShowEvents] = useState(true);
-  const today = new Date();
+  // const today = new Date();
   const [eventYear, setEventYear] = useState("2023");
   const [eventDisplayed, setEventsDisplayed] = useState("2023");
   const eventsCollectionRef = collection(db, "events");
@@ -126,21 +127,22 @@ const Events = (props) => {
       {eventDisplayed && (
         <div>
           <h2>there is no events this year yet</h2>
-          <h2>{emptyMessage}</h2>
+          {/* <h2>{emptyMessage}</h2> */}
         </div>
       )}
       {showEvents &&
         months.map((currentMonth, index) => {
           if (currentMonth !== undefined)
             return (
-              <Month
-                monthItem={currentMonth}
-                index={index}
-                deleteHandler={deleteEvent}
-                key={randomStr()}
-                closeTheCreateEvent={props.closeTheCreateEvent}
-                eventIsEdittedHandler={eventIsEdittedHandler}
-              />
+              <div key={randomStr()}>
+                <Month
+                  monthItem={currentMonth}
+                  index={index}
+                  deleteHandler={deleteEvent}
+                  closeTheCreateEvent={props.closeTheCreateEvent}
+                  eventIsEdittedHandler={eventIsEdittedHandler}
+                />
+              </div>
             );
           else return 1;
         })}

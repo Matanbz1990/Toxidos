@@ -3,9 +3,9 @@
   /* border-end-end-radius: 80px 80px; */
   /* border: solid 0.5px rgb(240, 201, 76); */
   border-radius: 7px;
-  width: 15%;
+  /* width: 15%; */
   margin: auto;
-  position: fixed;
+  /* position: fixed; */
   top: 8rem;
   right: 8rem;
 
@@ -21,7 +21,7 @@
 .square1 {
   width: 15px;
   height: 15px;
-  background-color: gb(36, 34, 34);
+  background-color: rgb(76, 72, 72);
   border-radius: 7px;
   border: solid 0.5px black;
 }

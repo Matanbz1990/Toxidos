@@ -1,25 +1,36 @@
 .container {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
 }
 form.editEvent {
   margin: auto;
-  width: 90rem;
+  width: 80%;
+  background-color: rgb(36, 34, 34);
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
   transition-duration: 0.4s;
-  background-color: rgb(36, 34, 34);
 }
-h2 {
+.editEvent h2 {
   text-align: center;
   color: rgb(240, 201, 76);
   margin-bottom: 20px;
 }
 
-.modal {
+.editmodal {
   margin-top: 10rem;
+}
+.wrap input {
+  height: 25px;
+  width: 50%;
+}
+.editEvent label {
+  color: rgb(240, 201, 76);
+  padding: 5px;
+}
+.editEvent .column2 label {
+  margin-left: 5px;
 }
 
 .wrap {
@@ -49,7 +60,7 @@ form.editEvent button:hover {
   border-width: 1px;
   cursor: pointer;
 }
-.x {
+.editEvent.x {
   color: rgb(240, 201, 76);
   background-color: rgb(10, 8, 1);
 }
@@ -60,9 +71,22 @@ form.editEvent button:hover {
   cursor: pointer;
 }
 .editButtons {
+  padding: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 30px;
-  padding-bottom: 0;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .wrap {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .wrap input {
+    width: 80%;
+    margin: auto;
+  }
+  .wrap label {
+    margin: auto;
+  }
 }

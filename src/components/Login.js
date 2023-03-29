@@ -40,7 +40,7 @@ export default function Login(props) {
     <Modal
       open={props.loginIsOpen}
       onClose={closeLogin}
-      className={classes.modal}
+      className={classes.loginmodal}
     >
       <form onSubmit={submitLogin}>
         <h1>Login</h1>

@@ -48,16 +48,13 @@ function Header(props) {
   };
   return (
     <header>
-      <div className={classes.container2}>
+      <div className={classes.containerImgH}>
+        {/* <div className={classes.text}> */}
         <img src={Rings} alt="img"></img>
-        <div className={classes.text}>
-          <h1> Weddiment </h1>
-
-          <p className={classes.ptext}>
-            weddings and events mangment platform for bands managers
-          </p>
-        </div>
+        <h1> Weddiment </h1>
       </div>
+
+      {/* </div> */}
       {!currentUser && (
         <div className={classes.container3}>
           <button type="submit" onClick={openLogin}>

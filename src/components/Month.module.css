@@ -6,8 +6,11 @@
   margin-top: 10px;
   background-color: rgb(0, 0, 0);
   width: 60%;
-  margin-left: 20rem;
+  margin: auto;
+
+  margin-top: 10px;
 }
+
 .nameOfMonth {
   width: 20%;
   border-radius: 10px;
@@ -30,4 +33,19 @@
   flex-wrap: wrap;
 
   align-items: center;
+}
+
+/* .eventUnit {
+  margin-left: 20px;
+} */
+@media (max-width: 1200px) {
+  .monthContainer {
+    /* width: 70%; */
+  }
+  .nameOfMonth {
+    width: 40%;
+  }
+  .displayEvents {
+    flex-direction: column;
+  }
 }

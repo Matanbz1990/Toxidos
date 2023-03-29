@@ -56,7 +56,7 @@ function Signup(props) {
     <Modal
       open={props.signUpIsOpen}
       onClose={closeSignUp}
-      className={classes.modal}
+      className={classes.signupmodal}
     >
       <form onSubmit={submitSignUp}>
         <h1>Sign Up</h1>
