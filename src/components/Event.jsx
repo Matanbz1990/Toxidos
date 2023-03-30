@@ -138,179 +138,224 @@ function Event(props) {
           </div>
           <div className={classes.eventContainer}>
             <div className={classes.column1}>
-              <div className={classes.Ewrap}>
-                <label>Date:</label>
-                <p>
-                  <strong>{israeliDate}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Location:</label>
-                <p>
-                  <strong>{props.location}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Bride & Groom names:</label>
-                <p>
-                  <strong>{props.costumerName}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>is event close?</label>
-                <p>
-                  <strong>{props.isClosed}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Amount invited:</label>
-                <p>
-                  <strong>{props.amountInvited}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Reception music hour:</label>
-                <p>
-                  <strong>{props.receptionMusicHour}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Reception music type:</label>
-                <p>
-                  <strong>{props.receptionMusicType}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Chupa hour:</label>
-                <p>
-                  <strong>{props.chupaHour}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label> Bride enterance song to chupa:</label>
-                <p>
-                  <strong>{props.chupaEnteranceSong}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label> Bride friends character:</label>
-                <p>
-                  <strong>{props.brideFriendsCharacter}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label> Groom friends character:</label>
-                <p>
-                  <strong>{props.groomFriendsCharacter}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Balance hour:</label>
-                <p>
-                  <strong>{props.balanceHour}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Bride chair hour:</label>
-                <p>
-                  <strong>{props.brideChairHour}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Hinuma cover song:</label>
-                <p>
-                  <strong>{props.hinumaCoverSong}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Bride bless song:</label>
-                <p>
-                  <strong>{props.brideBlessSong}</strong>
-                </p>
-              </div>
+              {israeliDate && (
+                <div className={classes.Ewrap}>
+                  <label>Date:</label>
+                  <p>
+                    <strong>{israeliDate}</strong>
+                  </p>
+                </div>
+              )}
+              {props.location && (
+                <div className={classes.Ewrap}>
+                  <label>Location:</label>
+                  <p>
+                    <strong>{props.location}</strong>
+                  </p>
+                </div>
+              )}
+              {props.costumerName && (
+                <div className={classes.Ewrap}>
+                  <label>Bride & Groom names:</label>
+                  <p>
+                    <strong>{props.costumerName}</strong>
+                  </p>
+                </div>
+              )}
+              {props.isClosed && (
+                <div className={classes.Ewrap}>
+                  <label>is event close?</label>
+                  <p>
+                    <strong>{props.isClosed}</strong>
+                  </p>
+                </div>
+              )}
+              {props.amountInvited && (
+                <div className={classes.Ewrap}>
+                  <label>Amount invited:</label>
+                  <p>
+                    <strong>{props.amountInvited}</strong>
+                  </p>
+                </div>
+              )}
+              {props.receptionMusicHour && (
+                <div className={classes.Ewrap}>
+                  <label>Reception music hour:</label>
+                  <p>
+                    <strong>{props.receptionMusicHour}</strong>
+                  </p>
+                </div>
+              )}
+              {props.receptionMusicType && (
+                <div className={classes.Ewrap}>
+                  <label>Reception music type:</label>
+                  <p>
+                    <strong>{props.receptionMusicType}</strong>
+                  </p>
+                </div>
+              )}
+              {props.chupaHour && (
+                <div className={classes.Ewrap}>
+                  <label>Chupa hour:</label>
+                  <p>
+                    <strong>{props.chupaHour}</strong>
+                  </p>
+                </div>
+              )}
+              {props.chupaEnteranceSong && (
+                <div className={classes.Ewrap}>
+                  <label> Bride enterance song to chupa:</label>
+                  <p>
+                    <strong>{props.chupaEnteranceSong}</strong>
+                  </p>
+                </div>
+              )}
+              {props.brideFriendsCharacter && (
+                <div className={classes.Ewrap}>
+                  <label> Bride friends character:</label>
+                  <p>
+                    <strong>{props.brideFriendsCharacter}</strong>
+                  </p>
+                </div>
+              )}
+              {props.groomFriendsCharacter && (
+                <div className={classes.Ewrap}>
+                  <label> Groom friends character:</label>
+                  <p>
+                    <strong>{props.groomFriendsCharacter}</strong>
+                  </p>
+                </div>
+              )}
+              {props.balanceHour && (
+                <div className={classes.Ewrap}>
+                  <label>Balance hour:</label>
+                  <p>
+                    <strong>{props.balanceHour}</strong>
+                  </p>
+                </div>
+              )}
+              {props.brideChairHour && (
+                <div className={classes.Ewrap}>
+                  <label>Bride chair hour:</label>
+                  <p>
+                    <strong>{props.brideChairHour}</strong>
+                  </p>
+                </div>
+              )}{" "}
+              {props.brideBlessSong && (
+                <div className={classes.Ewrap}>
+                  <label>Bride bless song:</label>
+                  <p>
+                    <strong>{props.brideBlessSong}</strong>
+                  </p>
+                </div>
+              )}
             </div>
             <div className={classes.column2}>
-              <div className={classes.Ewrap}>
-                <label>there is Dj?</label>
-                <p>
-                  <strong>{props.isDj}</strong>
-                </p>
-              </div>
-
-              <div className={classes.Ewrap}>
-                <label>Dress code:</label>
-                <p>
-                  <strong>{props.dressCode}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Im Eshkachech:</label>
-                <p>
-                  <strong>{props.imEshkachech}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Breaking Glass timing:</label>
-                <p>
-                  <strong>{props.breakingGlassTiming}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>First dancing round duration (min.):</label>
-                <p>
-                  <strong>{props.firstDancingRoundDuration}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>First dancing round MusicType:</label>
-                <p>
-                  <strong>{props.firstDancingRoundMusicType}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Second dancing round duration (min.):</label>
-                <p>
-                  <strong>{props.secondDancingRoundDuration}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Second dancing round MusicType:</label>
-                <p>
-                  <strong>{props.secondDancingRoundMusicType}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Contact man name:</label>
-                <p>
-                  <strong>{props.contactManName}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Contact man phone:</label>
-                <p>
-                  <strong>{props.contactManPhone}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label>Breaking glass song:</label>
-                <p>
-                  <strong>{props.breakingGlassSong}</strong>
-                </p>
-              </div>
-
-              <div className={classes.Ewrap}>
-                <label>Price in Shekels:</label>
-                <p>
-                  <strong>{props.givenPrice}</strong>
-                </p>
-              </div>
-              <div className={classes.Ewrap}>
-                <label> Manager remarks:</label>
-                <p>
-                  <strong>{props.managerRemarks}</strong>
-                </p>
-              </div>
-
+              {props.isDj && (
+                <div className={classes.Ewrap}>
+                  <label>there is Dj?</label>
+                  <p>
+                    <strong>{props.isDj}</strong>
+                  </p>
+                </div>
+              )}
+              {props.dressCode && (
+                <div className={classes.Ewrap}>
+                  <label>Dress code:</label>
+                  <p>
+                    <strong>{props.dressCode}</strong>
+                  </p>
+                </div>
+              )}
+              {props.imEshkachech && (
+                <div className={classes.Ewrap}>
+                  <label>Im Eshkachech:</label>
+                  <p>
+                    <strong>{props.imEshkachech}</strong>
+                  </p>
+                </div>
+              )}
+              {props.breakingGlassTiming && (
+                <div className={classes.Ewrap}>
+                  <label>Breaking Glass timing:</label>
+                  <p>
+                    <strong>{props.breakingGlassTiming}</strong>
+                  </p>
+                </div>
+              )}
+              {props.firstDancingRoundDuration && (
+                <div className={classes.Ewrap}>
+                  <label>First dancing round duration (min.):</label>
+                  <p>
+                    <strong>{props.firstDancingRoundDuration}</strong>
+                  </p>
+                </div>
+              )}
+              {props.firstDancingRoundMusicType && (
+                <div className={classes.Ewrap}>
+                  <label>First dancing round MusicType:</label>
+                  <p>
+                    <strong>{props.firstDancingRoundMusicType}</strong>
+                  </p>
+                </div>
+              )}
+              {props.secondDancingRoundDuration && (
+                <div className={classes.Ewrap}>
+                  <label>Second dancing round duration (min.):</label>
+                  <p>
+                    <strong>{props.secondDancingRoundDuration}</strong>
+                  </p>
+                </div>
+              )}
+              {props.secondDancingRoundMusicType && (
+                <div className={classes.Ewrap}>
+                  <label>Second dancing round MusicType:</label>
+                  <p>
+                    <strong>{props.secondDancingRoundMusicType}</strong>
+                  </p>
+                </div>
+              )}
+              {props.contactManName && (
+                <div className={classes.Ewrap}>
+                  <label>Contact man name:</label>
+                  <p>
+                    <strong>{props.contactManName}</strong>
+                  </p>
+                </div>
+              )}
+              {props.contactManPhone && (
+                <div className={classes.Ewrap}>
+                  <label>Contact man phone:</label>
+                  <p>
+                    <strong>{props.contactManPhone}</strong>
+                  </p>
+                </div>
+              )}
+              {props.breakingGlassSong && (
+                <div className={classes.Ewrap}>
+                  <label>Breaking glass song:</label>
+                  <p>
+                    <strong>{props.breakingGlassSong}</strong>
+                  </p>
+                </div>
+              )}
+              {props.givenPrice && (
+                <div className={classes.Ewrap}>
+                  <label>Price in Shekels:</label>
+                  <p>
+                    <strong>{props.givenPrice}</strong>
+                  </p>
+                </div>
+              )}
+              {props.managerRemarks && (
+                <div className={classes.Ewrap}>
+                  <label> Manager remarks:</label>
+                  <p>
+                    <strong>{props.managerRemarks}</strong>
+                  </p>
+                </div>
+              )}
               <div className={classes.closeEditAndDelete}>
                 <button
                   className={classes.button1}

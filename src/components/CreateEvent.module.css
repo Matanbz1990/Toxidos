@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .createmodal {
   margin-top: 100px;
 }
@@ -47,9 +48,26 @@ form.createEvent {
 }
 textarea {
   border-radius: 7px;
-  font-size: x-large;
+  font-size: larger;
 }
-
+.showButton {
+  margin: auto;
+  border-radius: 20px;
+  height: 40px;
+  width: 100px;
+  font-size: medium;
+  background-color: rgb(0, 0, 0);
+  color: rgb(240, 201, 76);
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 20px;
+  text-align: center;
+}
+.showButton:hover {
+  background-color: rgb(240, 201, 76);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
 .x {
   color: rgb(240, 201, 76);
   /* background-color: rgb(10, 8, 1); */
@@ -111,6 +129,11 @@ textarea {
 .createEventsButtons {
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
+}
+.showButtonDiv {
+  margin: auto;
+  text-align: center;
 }
 @media (max-width: 1600px) {
   .container {
@@ -128,20 +151,21 @@ textarea {
   }
 }
 @media (max-width: 1000px) {
-  .wrap {
-    flex-direction: column;
-  }
-
   .createEvent input {
     max-width: 200px;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 870px) {
+  .wrap {
+    flex-direction: column;
+  }
   .radioDiv {
-    /* display: block; */
-    margin: auto;
-    align-items: baseline;
-    align-content: baseline;
+    /* margin: auto; */
+    /* align-items: baseline;
+    align-content: baseline; */
+    /* justify-content: space-between; */
+  }
+  .radioInput {
     justify-content: space-between;
   }
 }
@@ -158,6 +182,17 @@ textarea {
     font-size: medium;
     margin-top: 3px;
     text-align: center;
+    margin: auto;
+  }
+  .createEventsButtons {
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+  }
+  .addButton {
+    margin-top: 15px;
+  }
+  .showButtonDiv {
     margin: auto;
   }
 }

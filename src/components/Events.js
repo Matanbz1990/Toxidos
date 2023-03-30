@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Month from "./Month";
 import EventFilter from "./EventFilter";
 import classes from "./Events.module.css";
 import { useAuth } from "../contexts/AuthContext";
-
 import { db } from "../firebase";
 import {
   collection,
@@ -33,6 +32,7 @@ const Events = (props) => {
   const months = [];
   const emptyMessage = "No matching documents.";
 
+  ////maybe separate component
   useEffect(() => {
     const getData = async () => {
       let array = [];
@@ -63,7 +63,7 @@ const Events = (props) => {
   useEffect(() => {
     if (filteredYearArrayEvent.length === 0) setEventsDisplayed(true);
     else setEventsDisplayed(false);
-  }, [setEventsDisplayed, eventYear, events, filteredYearArrayEvent]);
+  }, [setEventsDisplayed, filteredYearArrayEvent]);
 
   //recieved chosen year from EventFilter component
   const selectedEventYear = (year) => {
@@ -150,4 +150,5 @@ const Events = (props) => {
     </div>
   );
 };
+
 export default Events;

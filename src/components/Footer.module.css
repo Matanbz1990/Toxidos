@@ -4,14 +4,24 @@ footer p {
 }
 
 footer {
-  position: fixed;
   text-align: center;
   bottom: 0;
   width: 100%;
+  /* margin-top: -30px; */
 }
 @media (max-width: 800px) {
   footer p {
     font-size: 11px;
     margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 1000px) {
+  footer {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    /* margin-top: -30px; */
   }
 }

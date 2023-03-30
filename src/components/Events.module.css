@@ -2,6 +2,7 @@
   color: rgb(240, 201, 76);
   text-align: center;
   margin: auto;
+  /* margin-bottom: 20px; */
 }
 @media (max-width: 800px) {
   .messages h2 {

@@ -45,11 +45,13 @@ const EditEvent = (props) => {
   const [checked, setChecked] = useState(isDj);
   const [shwekiChecked, setShwekiChecked] = useState(false);
   const [karlibachChecked, setKarlibachChecked] = useState(false);
+  const [otherChecked, setOtherChecked] = useState(false);
   const [closedChecked, setClosedChecked] = useState(false);
   const [reservedChecked, setReservedChecked] = useState(false);
   useEffect(() => {
     if (event.imEshkachech === "shweki") setShwekiChecked(true);
     if (event.imEshkachech === "karlibach") setKarlibachChecked(true);
+    if (event.imEshkachech === "other") setOtherChecked(true);
     if (event.isClosed === "closed") setClosedChecked(true);
     if (event.isClosed === "reserved") setReservedChecked(true);
   }, [event.imEshkachech, event.isClosed]);
@@ -162,6 +164,34 @@ const EditEvent = (props) => {
                   onChange={handleChange}
                   value={event.costumerName}
                 />
+              </div>
+              <div className={classes.wrap}>
+                <label> the event is closed?:</label>
+
+                <div>
+                  <label htmlFor="closed">
+                    closed
+                    <input
+                      type="radio"
+                      id="closed"
+                      name="isClosed"
+                      onChange={handleChange}
+                      value={closedChecked}
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="reserved">
+                    reserved
+                    <input
+                      type="radio"
+                      id="reserved"
+                      name="isClosed"
+                      onChange={handleChange}
+                      value={reservedChecked}
+                    />
+                  </label>
+                </div>
               </div>
               <div className={classes.wrap}>
                 <label htmlFor="amountInvited">Amount Invited:</label>
@@ -408,34 +438,6 @@ const EditEvent = (props) => {
               </div>
 
               <div className={classes.wrap}>
-                <label> the event is closed?:</label>
-
-                <div>
-                  <label htmlFor="closed">
-                    closed
-                    <input
-                      type="radio"
-                      id="closed"
-                      name="isClosed"
-                      onChange={handleChange}
-                      value={closedChecked}
-                    />
-                  </label>
-                </div>
-                <div>
-                  <label htmlFor="reserved">
-                    reserved
-                    <input
-                      type="radio"
-                      id="reserved"
-                      name="isClosed"
-                      onChange={handleChange}
-                      value={reservedChecked}
-                    />
-                  </label>
-                </div>
-              </div>
-              <div className={classes.wrap}>
                 <label> Im Eshkachech:</label>
 
                 <div>
@@ -453,7 +455,6 @@ const EditEvent = (props) => {
                 </div>
                 <div>
                   <label htmlFor="karlibach">
-                    {" "}
                     Karlibach
                     <input
                       type="radio"
@@ -461,6 +462,18 @@ const EditEvent = (props) => {
                       name="imEshkachech"
                       onChange={handleChange}
                       value={karlibachChecked}
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="other">
+                    other
+                    <input
+                      type="radio"
+                      id="other"
+                      name="imEshkachech"
+                      onChange={handleChange}
+                      value={otherChecked}
                     />
                   </label>
                 </div>

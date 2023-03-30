@@ -47,7 +47,7 @@ form.inputsGroup {
   width: 60rem;
   margin: 30px auto 20px auto;
 }
-form button {
+.loginmodal form button {
   border-radius: 20px;
   height: 40px;
   width: 100px;
@@ -58,7 +58,7 @@ form button {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 20px;
 }
-form button:hover {
+.loginmodal form button:hover {
   background-color: rgb(240, 201, 76);
   color: rgb(0, 0, 0);
   cursor: pointer;

@@ -1,3 +1,7 @@
+.eventDiv {
+  margin: auto;
+  text-align: center;
+}
 .event {
   background-color: rgb(36, 34, 34);
   /*   border-color: rgb(240, 201, 76);*/
@@ -163,6 +167,8 @@ p {
   }
   .Ewrap label {
     font-size: medium;
+    margin: auto;
+    margin-top: 5px;
   }
   .Ewrap p {
     font-size: medium;
