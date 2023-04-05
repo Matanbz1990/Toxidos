@@ -1,25 +1,31 @@
-.container {
-  display: block;
-  width: 80%;
-  padding: 20px 20px 20px 40px;
-  background-color: rgb(36, 34, 34);
-  background: rgb(0, 0, 0);
-  margin-right: 30px;
+ul {
+  /* list-style-type: circle; */
+  list-style-position: inside;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
   border-radius: 10px;
   transition-duration: 0.4s;
-  box-shadow: 0 1px 5px rgb(138, 137, 137);
+  margin-right: 30px;
+  background: rgb(0, 0, 0);
+  width: 80%;
+  padding-left: 10px;
 }
-.container:hover {
+.container {
+  /* padding-bottom: 10px; */
+  padding: 20px;
+}
+ul:hover {
   background-color: rgb(240, 201, 76);
 
   color: rgb(0, 0, 0);
 }
 li {
-  margin-top: 8px;
+  margin: 20px 0;
+  /* margin-right: 20px; */
 }
+
 @media (max-width: 800px) {
-  .container {
+  ul {
+    margin-right: 0px;
     margin-top: 20px;
-    margin-right: 0;
   }
 }

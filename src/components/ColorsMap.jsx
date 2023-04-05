@@ -6,15 +6,15 @@ export default function ColorsMap() {
     <div className={classes.colorsMap}>
       <div className={classes.colorCss}>
         <div className={classes.square2}> </div>
-        <h4> event is reserved</h4>
+        <h4> הארוע משוריין</h4>
       </div>
       <div className={classes.colorCss}>
         <div className={classes.square1}> </div>
-        <h4>event is closed</h4>
+        <h4>הארוע סגור</h4>
       </div>
       <div className={classes.colorCss}>
         <div className={classes.square3}> </div>
-        <h4>event date has passed</h4>
+        <h4>התאריך עבר</h4>
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
 .eventFilter {
-  padding: 0 1rem;
-  width: 30rem;
+  padding: 0 100px;
+  width: 20rem;
   background: rgb(0, 0, 0);
   color: rgb(240, 201, 76);
   padding: 1rem 1rem;
-  margin: 1rem;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   display: flex;
@@ -14,12 +13,11 @@
 }
 
 .eventFilterControl {
-  display: flex;
   text-align: center;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem 0;
+  margin: 10px 0;
 }
 
 .eventFilter label {

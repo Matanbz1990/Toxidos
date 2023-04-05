@@ -62,7 +62,7 @@ function Signup(props) {
         <h1>Sign Up</h1>
         <div className={classes.inputsGroup}>
           <div className={classes.inputlabel}>
-            <label>Band name:</label>
+            <label>שם הלהקה:</label>
             <input
               type="text"
               onChange={onChangeBandName}
@@ -71,25 +71,25 @@ function Signup(props) {
             />
           </div>
           <div className={classes.inputlabel}>
-            <label>Email:</label>
+            <label>אימייל:</label>
             <input type="email" ref={emailRef} required />
           </div>
 
           <div className={classes.inputlabel}>
-            <label>password:</label>
+            <label>סיסמא:</label>
             <input type="password" ref={passwordRef} required />
           </div>
           <div className={classes.inputlabel}>
-            <label>password (confirm):</label>
+            <label>סיסמא (זהה לקודמת)</label>
             <input type="password" ref={validatePasswordRef} required />
           </div>
         </div>
         {error && <p>{error}</p>}
-        {loading && <p>Loading</p>}
+        {loading && <p>טוען</p>}
         <button disabled={loading} type="submit">
           Sign up
         </button>
-        <p>do you already have an account?</p>
+        <p>יש לך כבר חשבון?</p>
         <button className={classes.littleButton} onClick={changeToLogin}>
           Login
         </button>

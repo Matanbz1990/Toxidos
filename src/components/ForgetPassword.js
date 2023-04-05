@@ -42,19 +42,19 @@ export default function ForgetPassword(props) {
       className={classes.forgatmodal}
     >
       <form onSubmit={submitForgetPassword}>
-        <h1>password reset</h1>
+        <h1>שחזר סיסמא</h1>
         {message && <p className={classes.goodMessage}>{message}</p>}
         <div className={classes.inputsGroup}>
           <div className={classes.inputlabelforget}>
-            <label>Email:</label>
+            <label>אימייל</label>
             <input type="email" ref={emailRef} required />
           </div>
         </div>
         {error && <p>{error}</p>}
-        {loading && <p>Loading</p>}
+        {loading && <p>טוען</p>}
         <div className={classes.buttons}>
           <button disabled={loading} type="submit">
-            Reset Password
+            שחזר סיסמא
           </button>
           <br></br>
           <button className={classes.littleButton} onClick={changeToLogin}>

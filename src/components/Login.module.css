@@ -1,5 +1,5 @@
 .loginmodal {
-  margin-top: 20rem;
+  margin-top: 10rem;
   text-align: center;
 }
 
@@ -10,7 +10,7 @@
   width: 30%; */
   /* margin: 30px 0; */
   position: relative;
-  width: 25%;
+  width: 20%;
   margin: 30px auto 20px auto;
   background: rgba(255, 255, 255, 0.63);
   padding: 15px;
@@ -81,6 +81,7 @@ form.inputsGroup {
 }
 span {
   color: white;
+  margin-right: 5px;
 }
 span:hover {
   color: rgb(209, 139, 139);

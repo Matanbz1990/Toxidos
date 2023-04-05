@@ -69,11 +69,11 @@ const EditEvent = (props) => {
       setKarlibachChecked(true);
       setShwekiChecked(false);
     }
-    if (id === "closed") {
+    if (id === "סגור") {
       setClosedChecked(true);
       setReservedChecked(false);
     }
-    if (id === "reserved") {
+    if (id === "משוריין") {
       setReservedChecked(true);
       setClosedChecked(false);
     }
@@ -130,11 +130,11 @@ const EditEvent = (props) => {
     >
       <div>
         <form className={classes.editEvent}>
-          <h2>Edit Event</h2>
+          <h2>ערוך ארוע</h2>
           <div className={classes.container}>
             <div className={classes.column1}>
               <div className={classes.wrap}>
-                <label htmlFor="date">Date:</label>
+                <label htmlFor="date">תאריך:</label>
                 <input
                   // min={getCurrentDate()}
                   type="date"
@@ -145,7 +145,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="location">Location:</label>
+                <label htmlFor="location">מיקום:</label>
                 <input
                   type="text"
                   id="input"
@@ -155,7 +155,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="costumerName">Bride & Groom names:</label>
+                <label htmlFor="costumerName">שמות החתן והכלה:</label>
 
                 <input
                   type="text"
@@ -166,14 +166,14 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label> the event is closed?:</label>
+                <label> הארוע סגור/משוריין:</label>
 
                 <div>
                   <label htmlFor="closed">
-                    closed
+                    סגור
                     <input
                       type="radio"
-                      id="closed"
+                      id="סגור"
                       name="isClosed"
                       onChange={handleChange}
                       value={closedChecked}
@@ -182,10 +182,10 @@ const EditEvent = (props) => {
                 </div>
                 <div>
                   <label htmlFor="reserved">
-                    reserved
+                    משוריין
                     <input
                       type="radio"
-                      id="reserved"
+                      id="משוריין"
                       name="isClosed"
                       onChange={handleChange}
                       value={reservedChecked}
@@ -194,7 +194,7 @@ const EditEvent = (props) => {
                 </div>
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="amountInvited">Amount Invited:</label>
+                <label htmlFor="amountInvited">מס' מוזמנים:</label>
 
                 <input
                   type="number"
@@ -205,7 +205,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="balanceHour">Balance hour:</label>
+                <label htmlFor="balanceHour">שעת הבאלאנס:</label>
 
                 <input
                   type="time"
@@ -217,7 +217,7 @@ const EditEvent = (props) => {
               </div>
               <div className={classes.wrap}>
                 <label htmlFor="receptionMusicHour">
-                  Reception Music start hour:
+                  שעת מוזיקה בקבלת פנים:
                 </label>
 
                 <input
@@ -230,7 +230,7 @@ const EditEvent = (props) => {
               </div>
               <div className={classes.wrap}>
                 <label htmlFor="receptionMusicType">
-                  Reception music type:
+                  סגנון המוזיקה בקבלת פנים:
                 </label>
 
                 <input
@@ -242,7 +242,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="brideChairHour">Bride chair hour:</label>
+                <label htmlFor="brideChairHour">שעת כסא כלה:</label>
 
                 <input
                   type="time"
@@ -253,7 +253,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="chupaHour">Chupa Hour:</label>
+                <label htmlFor="chupaHour">שעת החופה:</label>
 
                 <input
                   type="time"
@@ -264,7 +264,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="hinumaCoverSong">Hinuma cover song:</label>
+                <label htmlFor="hinumaCoverSong">שיר בכיסוי הינומה</label>
 
                 <input
                   type="text"
@@ -277,7 +277,7 @@ const EditEvent = (props) => {
 
               <div className={classes.wrap}>
                 <label htmlFor="firstDancingRoundDuration">
-                  First dancing round duration(minutes):
+                  משך זמן סבב ריקודים ראשון (דקות):
                 </label>
 
                 <input
@@ -290,7 +290,7 @@ const EditEvent = (props) => {
               </div>
               <div className={classes.wrap}>
                 <label htmlFor="firstDancingRoundMusicType">
-                  First dancing round music type:
+                  סגנון המוזיקה בסבב ריקודים ראשון:
                 </label>
 
                 <input
@@ -303,7 +303,7 @@ const EditEvent = (props) => {
               </div>
               <div className={classes.wrap}>
                 <label htmlFor="secondDancingRoundDuration">
-                  Second dancing round duration(minutes):
+                  משך זמן סבב ריקודים שני (דקות):
                 </label>
 
                 <input
@@ -316,7 +316,7 @@ const EditEvent = (props) => {
               </div>
               <div className={classes.wrap}>
                 <label htmlFor="secondDancingRoundMusicType">
-                  Second dancing round music type:
+                  סגנון המוזיקה בסבב ריקודים שני:
                 </label>
 
                 <input
@@ -330,7 +330,7 @@ const EditEvent = (props) => {
             </div>
             <div className={classes.column2}>
               <div className={classes.wrap}>
-                <label htmlFor="brideBlessSong">Bride bless song:</label>
+                <label htmlFor="brideBlessSong">שיר ברכת כלה:</label>
 
                 <input
                   type="text"
@@ -341,9 +341,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="chupaEnteranceSong">
-                  Chupa Bride enterance song:
-                </label>
+                <label htmlFor="chupaEnteranceSong">שיר כניסת כלה לחופה:</label>
 
                 <input
                   type="text"
@@ -355,7 +353,7 @@ const EditEvent = (props) => {
               </div>
               <div className={classes.wrap}>
                 <label htmlFor="breakingGlassTiming">
-                  Breaking glass timing:
+                  תזמון שבירת הכוס (אמצע/סוף אם אשכחך)
                 </label>
 
                 <input
@@ -368,7 +366,7 @@ const EditEvent = (props) => {
               </div>
 
               <div className={classes.wrap}>
-                <label htmlFor="breakingGlassSong">Breaking glass song:</label>
+                <label htmlFor="breakingGlassSong">:שיר שבירת הכוס</label>
                 <input
                   type="text"
                   id="input"
@@ -378,9 +376,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="brideFriendsCharacter">
-                  Bride friends character:
-                </label>
+                <label htmlFor="brideFriendsCharacter">סגנון חברות הכלה:</label>
                 <input
                   type="text"
                   id="input"
@@ -390,9 +386,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="groomFriendsCharacter">
-                  Groom friends character:
-                </label>
+                <label htmlFor="groomFriendsCharacter">סגנון חברי החתן:</label>
                 <input
                   type="text"
                   id="input"
@@ -402,7 +396,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="dressCode">Dress code:</label>
+                <label htmlFor="dressCode">קוד לבוש להקה:</label>
 
                 <input
                   type="text"
@@ -413,7 +407,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="contactManName">Contact man name:</label>
+                <label htmlFor="contactManName">איש קשר:</label>
 
                 <input
                   type="text"
@@ -424,9 +418,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="contactManPhone">
-                  Contact man phone number:
-                </label>
+                <label htmlFor="contactManPhone">טלפון של איש קשר</label>
 
                 <input
                   type="number"
@@ -438,12 +430,12 @@ const EditEvent = (props) => {
               </div>
 
               <div className={classes.wrap}>
-                <label> Im Eshkachech:</label>
+                <label> אם אשכחך:</label>
 
                 <div>
                   <label htmlFor="shweki">
                     {" "}
-                    Shweki
+                    שוואקי
                     <input
                       type="radio"
                       id="shweki"
@@ -455,7 +447,7 @@ const EditEvent = (props) => {
                 </div>
                 <div>
                   <label htmlFor="karlibach">
-                    Karlibach
+                    קרליבך
                     <input
                       type="radio"
                       id="karlibach"
@@ -467,7 +459,7 @@ const EditEvent = (props) => {
                 </div>
                 <div>
                   <label htmlFor="other">
-                    other
+                    אחר
                     <input
                       type="radio"
                       id="other"
@@ -479,7 +471,7 @@ const EditEvent = (props) => {
                 </div>
               </div>
               <div className={classes.wrap}>
-                <label htmlFor="isDj">there is Dj?</label>
+                <label htmlFor="isDj">יש דיג'יי?</label>
 
                 <input
                   id="input"
@@ -490,7 +482,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label>Price in Shekels:</label>
+                <label>מחיר בשקלים:</label>
                 <input
                   type="number"
                   id="input"
@@ -500,7 +492,7 @@ const EditEvent = (props) => {
                 />
               </div>
               <div className={classes.wrap}>
-                <label> Manager remarks :</label>
+                <label> הערות:</label>
                 <textarea
                   name="managerRemarks"
                   cols="40"
@@ -517,7 +509,7 @@ const EditEvent = (props) => {
               className={classes.x}
               onClick={props.onCloseEdit}
             />
-            <button onClick={submitEvent}>save changes</button>
+            <button onClick={submitEvent}>שמור שינויים</button>
           </div>
         </form>
       </div>

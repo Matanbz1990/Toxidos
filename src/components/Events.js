@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Month from "./Month";
-import EventFilter from "./EventFilter";
+import EventFilterTable from "./EventFilterTable";
 import classes from "./Events.module.css";
 import { useAuth } from "../contexts/AuthContext";
+
 import { db } from "../firebase";
 import {
   collection,
@@ -32,7 +33,6 @@ const Events = (props) => {
   const months = [];
   const emptyMessage = "No matching documents.";
 
-  ////maybe separate component
   useEffect(() => {
     const getData = async () => {
       let array = [];
@@ -55,7 +55,7 @@ const Events = (props) => {
       setEvents(array);
     };
     getData();
-  }, [q, eventHasEditted]);
+  }, [q, eventHasEditted, eventRemoved, props.eventAdded]);
 
   const filteredYearArrayEvent = events.filter((event) => {
     return event.date.slice(0, 4) === eventYear;
@@ -63,7 +63,7 @@ const Events = (props) => {
   useEffect(() => {
     if (filteredYearArrayEvent.length === 0) setEventsDisplayed(true);
     else setEventsDisplayed(false);
-  }, [setEventsDisplayed, filteredYearArrayEvent]);
+  }, [setEventsDisplayed, eventYear, events, filteredYearArrayEvent]);
 
   //recieved chosen year from EventFilter component
   const selectedEventYear = (year) => {
@@ -119,14 +119,14 @@ const Events = (props) => {
   return (
     <div className={classes.messages}>
       <div>
-        {props.eventAdded && <h2>Event Added!</h2>}
-        {eventRemoved && <h2>Event Removed!</h2>}
-        {eventHasEditted && <h2>Event has edited!</h2>}
+        {props.eventAdded && <h2>הארוע נוסף!</h2>}
+        {eventRemoved && <h2>הארוע הוסר!</h2>}
+        {eventHasEditted && <h2>הארוע נערך! </h2>}
       </div>
-      <EventFilter selectedYearData={selectedEventYear} />
+      <EventFilterTable selectedYearData={selectedEventYear} />
       {eventDisplayed && (
         <div>
-          <h2>there is no events this year yet</h2>
+          <h2>אין ארועים לשנה זו</h2>
           {/* <h2>{emptyMessage}</h2> */}
         </div>
       )}
@@ -150,5 +150,4 @@ const Events = (props) => {
     </div>
   );
 };
-
 export default Events;

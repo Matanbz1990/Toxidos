@@ -22,11 +22,8 @@ function App() {
 
   const eventsCollectionRef = collection(db, "events");
   const usersCollectionRef = collection(db, "users");
-  useEffect(() => {
-    if (!currentUser) {
-      closeTheCreateEvent();
-    }
 
+  useEffect(() => {
     getDocs(usersCollectionRef).then((snapshot) => {
       snapshot.docs.forEach((doc) => {});
     });
@@ -45,11 +42,8 @@ function App() {
       });
   }
 
-  const openTheCreateEvent = () => {
-    setShowCreateEvent(true);
-  };
-  const closeTheCreateEvent = () => {
-    setShowCreateEvent(false);
+  const changeTheCreateEvent = () => {
+    setShowCreateEvent(!showCreateEvent);
   };
   const handleSignUpIsOpen = () => {
     setSignUpIsOpen(!signUpIsOpen);
@@ -64,26 +58,36 @@ function App() {
   return (
     <div className={classes.appContainer}>
       <Header
-        key={Math.random()}
         handleSignUpIsOpen={handleSignUpIsOpen}
         handleLoginIsOpen={handleLoginIsOpen}
         setLoginIsOpen={setLoginIsOpen}
       />
 
-      {!currentUser && <Home handleSignUpIsOpen={handleSignUpIsOpen} />}
-      {!showCreateEvent && currentUser && (
-        <div className={classes.buttonContainer}>
-          <button
-            className={classes.button1}
-            onClick={() => {
-              setShowCreateEvent(true);
-            }}
-          >
-            Create event
-          </button>
-        </div>
+      {currentUser ? (
+        <>
+          {showCreateEvent ? (
+            <CreateEvent
+              onAdd={addEvent}
+              closeCreateEvent={changeTheCreateEvent}
+              openTheCreateEvent={changeTheCreateEvent}
+            />
+          ) : (
+            <div className={classes.buttonContainer}>
+              <button
+                className={classes.button1}
+                onClick={() => {
+                  changeTheCreateEvent();
+                }}
+              >
+                צור ארוע
+              </button>
+            </div>
+          )}
+          <Events eventAdded={eventAdded} />
+        </>
+      ) : (
+        <Home handleSignUpIsOpen={handleSignUpIsOpen} />
       )}
-
       {signUpIsOpen && (
         <Signup
           signUpIsOpen={signUpIsOpen}
@@ -104,22 +108,6 @@ function App() {
           handleForgetPasswordIsOpen={handleForgetPasswordIsOpen}
           handleLoginIsOpen={handleLoginIsOpen}
           forgetPasswordIsOpen={forgetPasswordIsOpen}
-        />
-      )}
-      {currentUser && showCreateEvent && (
-        <CreateEvent
-          onAdd={addEvent}
-          closeCreateEvent={closeTheCreateEvent}
-          openTheCreateEvent={openTheCreateEvent}
-          // eventIsAdded={eventAdded}
-          key={Math.random()}
-        />
-      )}
-      {currentUser && (
-        <Events
-          eventAdded={eventAdded}
-          closeTheCreateEvent={closeTheCreateEvent}
-          key={Math.random()}
         />
       )}
       <Footer />

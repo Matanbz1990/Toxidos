@@ -42,7 +42,7 @@ function Event(props) {
 
   const dateHasPassedClasses = `${isTheDatePass ? classes.dateIsPass : ""}`;
   const prevContainerClasses = `${classes.prevContainer} ${
-    !isTheDatePass && props.isClosed === "reserved" ? classes.reserved : ""
+    !isTheDatePass && props.isClosed === "משוריין" ? classes.reserved : ""
   }`;
   // const arrOfLabels1 = [
   //   "Date:",
@@ -105,7 +105,7 @@ function Event(props) {
                 setIsOpen(!isOpen);
               }}
             >
-              open
+              פתח
             </button>
           </div>
         </div>
@@ -133,14 +133,14 @@ function Event(props) {
         >
           <div className={classes.eventmodalH3}>
             <h3>
-              <strong>event details</strong>
+              <strong>פרטי הארוע</strong>
             </h3>
           </div>
           <div className={classes.eventContainer}>
             <div className={classes.column1}>
               {israeliDate && (
                 <div className={classes.Ewrap}>
-                  <label>Date:</label>
+                  <label>תאריך:</label>
                   <p>
                     <strong>{israeliDate}</strong>
                   </p>
@@ -148,7 +148,7 @@ function Event(props) {
               )}
               {props.location && (
                 <div className={classes.Ewrap}>
-                  <label>Location:</label>
+                  <label>מיקום:</label>
                   <p>
                     <strong>{props.location}</strong>
                   </p>
@@ -156,7 +156,7 @@ function Event(props) {
               )}
               {props.costumerName && (
                 <div className={classes.Ewrap}>
-                  <label>Bride & Groom names:</label>
+                  <label>שמות החתן והכלה:</label>
                   <p>
                     <strong>{props.costumerName}</strong>
                   </p>
@@ -164,7 +164,7 @@ function Event(props) {
               )}
               {props.isClosed && (
                 <div className={classes.Ewrap}>
-                  <label>is event close?</label>
+                  <label>הארוע סגור/משוריין</label>
                   <p>
                     <strong>{props.isClosed}</strong>
                   </p>
@@ -172,7 +172,7 @@ function Event(props) {
               )}
               {props.amountInvited && (
                 <div className={classes.Ewrap}>
-                  <label>Amount invited:</label>
+                  <label>מס' המוזמנים:</label>
                   <p>
                     <strong>{props.amountInvited}</strong>
                   </p>
@@ -180,7 +180,7 @@ function Event(props) {
               )}
               {props.receptionMusicHour && (
                 <div className={classes.Ewrap}>
-                  <label>Reception music hour:</label>
+                  <label>שעת מוזיקה בקבלת פנים:</label>
                   <p>
                     <strong>{props.receptionMusicHour}</strong>
                   </p>
@@ -188,7 +188,7 @@ function Event(props) {
               )}
               {props.receptionMusicType && (
                 <div className={classes.Ewrap}>
-                  <label>Reception music type:</label>
+                  <label>סגנון מוזיקה בקבלת פנים:</label>
                   <p>
                     <strong>{props.receptionMusicType}</strong>
                   </p>
@@ -196,7 +196,7 @@ function Event(props) {
               )}
               {props.chupaHour && (
                 <div className={classes.Ewrap}>
-                  <label>Chupa hour:</label>
+                  <label>שעת החופה:</label>
                   <p>
                     <strong>{props.chupaHour}</strong>
                   </p>
@@ -204,7 +204,7 @@ function Event(props) {
               )}
               {props.chupaEnteranceSong && (
                 <div className={classes.Ewrap}>
-                  <label> Bride enterance song to chupa:</label>
+                  <label> שיר כניסת כלה לחופה:</label>
                   <p>
                     <strong>{props.chupaEnteranceSong}</strong>
                   </p>
@@ -212,7 +212,7 @@ function Event(props) {
               )}
               {props.brideFriendsCharacter && (
                 <div className={classes.Ewrap}>
-                  <label> Bride friends character:</label>
+                  <label> סגנון חברות הכלה:</label>
                   <p>
                     <strong>{props.brideFriendsCharacter}</strong>
                   </p>
@@ -220,7 +220,7 @@ function Event(props) {
               )}
               {props.groomFriendsCharacter && (
                 <div className={classes.Ewrap}>
-                  <label> Groom friends character:</label>
+                  <label> סגנון חברי החתן:</label>
                   <p>
                     <strong>{props.groomFriendsCharacter}</strong>
                   </p>
@@ -228,7 +228,7 @@ function Event(props) {
               )}
               {props.balanceHour && (
                 <div className={classes.Ewrap}>
-                  <label>Balance hour:</label>
+                  <label>שעת הבאלאנס:</label>
                   <p>
                     <strong>{props.balanceHour}</strong>
                   </p>
@@ -236,7 +236,7 @@ function Event(props) {
               )}
               {props.brideChairHour && (
                 <div className={classes.Ewrap}>
-                  <label>Bride chair hour:</label>
+                  <label>שעת כסא כלה:</label>
                   <p>
                     <strong>{props.brideChairHour}</strong>
                   </p>
@@ -244,7 +244,7 @@ function Event(props) {
               )}{" "}
               {props.brideBlessSong && (
                 <div className={classes.Ewrap}>
-                  <label>Bride bless song:</label>
+                  <label>:שיר ברכת כלה</label>
                   <p>
                     <strong>{props.brideBlessSong}</strong>
                   </p>
@@ -254,7 +254,7 @@ function Event(props) {
             <div className={classes.column2}>
               {props.isDj && (
                 <div className={classes.Ewrap}>
-                  <label>there is Dj?</label>
+                  <label>יש דיג'יי?</label>
                   <p>
                     <strong>{props.isDj}</strong>
                   </p>
@@ -262,7 +262,7 @@ function Event(props) {
               )}
               {props.dressCode && (
                 <div className={classes.Ewrap}>
-                  <label>Dress code:</label>
+                  <label>קוד לבוש ללהקה:</label>
                   <p>
                     <strong>{props.dressCode}</strong>
                   </p>
@@ -270,7 +270,7 @@ function Event(props) {
               )}
               {props.imEshkachech && (
                 <div className={classes.Ewrap}>
-                  <label>Im Eshkachech:</label>
+                  <label>אם אשכחך:</label>
                   <p>
                     <strong>{props.imEshkachech}</strong>
                   </p>
@@ -278,7 +278,7 @@ function Event(props) {
               )}
               {props.breakingGlassTiming && (
                 <div className={classes.Ewrap}>
-                  <label>Breaking Glass timing:</label>
+                  <label>תזמון שבירת כוס:</label>
                   <p>
                     <strong>{props.breakingGlassTiming}</strong>
                   </p>
@@ -286,7 +286,7 @@ function Event(props) {
               )}
               {props.firstDancingRoundDuration && (
                 <div className={classes.Ewrap}>
-                  <label>First dancing round duration (min.):</label>
+                  <label> משך זמן סבב ריקודים ראשון (דקות):</label>
                   <p>
                     <strong>{props.firstDancingRoundDuration}</strong>
                   </p>
@@ -294,7 +294,7 @@ function Event(props) {
               )}
               {props.firstDancingRoundMusicType && (
                 <div className={classes.Ewrap}>
-                  <label>First dancing round MusicType:</label>
+                  <label>סגנון המוזיקה בסבב ריקודים ראשון:</label>
                   <p>
                     <strong>{props.firstDancingRoundMusicType}</strong>
                   </p>
@@ -302,7 +302,7 @@ function Event(props) {
               )}
               {props.secondDancingRoundDuration && (
                 <div className={classes.Ewrap}>
-                  <label>Second dancing round duration (min.):</label>
+                  <label> משך זמן סבב ריקודים שני (דקות):</label>
                   <p>
                     <strong>{props.secondDancingRoundDuration}</strong>
                   </p>
@@ -310,7 +310,7 @@ function Event(props) {
               )}
               {props.secondDancingRoundMusicType && (
                 <div className={classes.Ewrap}>
-                  <label>Second dancing round MusicType:</label>
+                  <label>סגנון המוזיקה בסבב ריקודים שני:</label>
                   <p>
                     <strong>{props.secondDancingRoundMusicType}</strong>
                   </p>
@@ -318,7 +318,7 @@ function Event(props) {
               )}
               {props.contactManName && (
                 <div className={classes.Ewrap}>
-                  <label>Contact man name:</label>
+                  <label>איש הקשר:</label>
                   <p>
                     <strong>{props.contactManName}</strong>
                   </p>
@@ -326,7 +326,7 @@ function Event(props) {
               )}
               {props.contactManPhone && (
                 <div className={classes.Ewrap}>
-                  <label>Contact man phone:</label>
+                  <label>טלפון של איש הקשר:</label>
                   <p>
                     <strong>{props.contactManPhone}</strong>
                   </p>
@@ -334,7 +334,7 @@ function Event(props) {
               )}
               {props.breakingGlassSong && (
                 <div className={classes.Ewrap}>
-                  <label>Breaking glass song:</label>
+                  <label>:שיר שבירת הכוס</label>
                   <p>
                     <strong>{props.breakingGlassSong}</strong>
                   </p>
@@ -342,7 +342,7 @@ function Event(props) {
               )}
               {props.givenPrice && (
                 <div className={classes.Ewrap}>
-                  <label>Price in Shekels:</label>
+                  <label>מחיר בשקלים:</label>
                   <p>
                     <strong>{props.givenPrice}</strong>
                   </p>
@@ -350,7 +350,7 @@ function Event(props) {
               )}
               {props.managerRemarks && (
                 <div className={classes.Ewrap}>
-                  <label> Manager remarks:</label>
+                  <label>הערות:</label>
                   <p>
                     <strong>{props.managerRemarks}</strong>
                   </p>
@@ -363,7 +363,7 @@ function Event(props) {
                     setIsOpen(!isOpen);
                   }}
                 >
-                  <p>close</p>
+                  <p>סגור</p>
                 </button>
 
                 <div>
@@ -371,11 +371,11 @@ function Event(props) {
                     className={classes.button1}
                     onClick={() => {
                       setEditIsShowen(true);
-                      props.onCloseTheCreateEvent();
+                      // props.onCloseTheCreateEvent();
                       console.log();
                     }}
                   >
-                    <p>edit</p>
+                    <p>ערוך</p>
                   </button>
                 </div>
 

@@ -28,7 +28,7 @@ function Header(props) {
     const rest = string.slice(1);
     return first + rest;
   }
-
+  // console.log(currentUser.name);
   const handleLogout = async (e) => {
     e.preventDefault();
     setError("");
@@ -68,7 +68,7 @@ function Header(props) {
       {currentUser && (
         <form className={classes.container3} onSubmit={handleLogout}>
           <h3>{bandName}</h3>
-          <h5>{currentUser.email} is connected </h5>
+          <h5>{currentUser.email} מחובר </h5>
 
           {error && <p>{error}</p>}
           <button type="submit">Log out</button>

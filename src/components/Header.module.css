@@ -15,6 +15,7 @@ header h1 {
   font-weight: 200;
   transition-duration: 0.4s;
   margin-top: 0;
+  margin-right: 5px;
   font-size: 2rem;
 }
 header h5 {
@@ -43,6 +44,7 @@ header h5 {
   display: flex;
   align-items: center;
   padding: 10px;
+  margin-top: 0px;
   /* align-items: baseline; */
 }
 .container3 {
@@ -50,6 +52,7 @@ header h5 {
   display: flex;
   align-items: last baseline;
   color: rgb(240, 201, 76);
+  margin-left: 10px;
 }
 .container3 input {
   margin: 0 10px;

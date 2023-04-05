@@ -11,43 +11,43 @@ const Month = (props) => {
     month = +month;
     switch (month) {
       case 1:
-        return "January";
+        return "ינואר";
 
       case 2:
-        return "February";
+        return "פברואר";
 
       case 3:
-        return "March";
+        return "מרץ";
 
       case 4:
-        return "April";
+        return "אפריל";
 
       case 5:
-        return "May";
+        return "מאי";
 
       case 6:
-        return "June";
+        return "יוני";
 
       case 7:
-        return "July";
+        return "יולי";
 
       case 8:
-        return "Aogust";
+        return "אוגוסט";
 
       case 9:
-        return "September";
+        return "ספטמבר";
 
       case 10:
-        return "October";
+        return "אוקטובר";
 
       case 11:
-        return "November";
+        return "נובמבר";
 
       case 12:
-        return "December";
+        return "דצמבר";
 
       default:
-        return "December";
+        return "ינואר";
     }
   };
 
@@ -85,7 +85,7 @@ const Month = (props) => {
                   givenPrice={eventItem.givenPrice}
                   onDelete={props.deleteHandler}
                   eventIsEdittedHandler={props.eventIsEdittedHandler}
-                  onCloseTheCreateEvent={props.closeTheCreateEvent}
+                  // onCloseTheCreateEvent={props.closeTheCreateEvent}
                   amountInvited={eventItem.amountInvited}
                   receptionMusicHour={eventItem.receptionMusicHour}
                   receptionMusicType={eventItem.receptionMusicType}

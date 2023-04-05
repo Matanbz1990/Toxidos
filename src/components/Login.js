@@ -46,21 +46,21 @@ export default function Login(props) {
         <h1>Login</h1>
         <div className={classes.inputsGroup}>
           <div className={classes.inputlabel}>
-            <label>Email:</label>
+            <label>אימייל:</label>
             <input ref={emailRef} />
           </div>
           <div className={classes.inputlabel}>
-            <label>Password:</label>
+            <label>סיסמא:</label>
             <input type="password" ref={passwordRef} />
           </div>
         </div>
         {error && <p>{error}</p>}
         <button type="submit">Login</button>
         <p>
-          forgot password? press{" "}
-          <span onClick={changeToForgetPassword}>here</span>{" "}
+          שכחת את הסיסמא? לחץ
+          <span onClick={changeToForgetPassword}>כאן</span>{" "}
         </p>
-        <p>you dont have account yet?</p>
+        <p>עדיין אין לך חשבון?</p>
         <button
           onClick={changeToSignup}
           disabled={loading}

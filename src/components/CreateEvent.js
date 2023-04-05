@@ -61,25 +61,18 @@ function CreateEvent(props) {
   }, [event]);
 
   function handleChange(e) {
-    const { name, value, type, id } = e.target;
+    const { name, value, type } = e.target;
     if (type === "checkbox") {
       if (name === "isDj") setIsDjChecked(!isDjChecked);
     }
-    if (type === "radio") {
-      setEvent((prevEvent) => {
-        return {
-          ...prevEvent,
-          [name]: id,
-        };
-      });
-    } else {
-      setEvent((prevEvent) => {
-        return {
-          ...prevEvent,
-          [name]: value,
-        };
-      });
-    }
+
+    setEvent((prevEvent) => {
+      return {
+        ...prevEvent,
+        [name]: value,
+      };
+    });
+    // }
   }
 
   function submitEvent(e) {
@@ -126,11 +119,11 @@ function CreateEvent(props) {
     // >
     <div>
       <form className={classes.createEvent}>
-        <h2>create event</h2>
+        <h2>צור ארוע</h2>
         <div className={classes.container}>
           <div className={classes.column1}>
             <div className={classes.wrap}>
-              <label htmlFor="date">Date:</label>
+              <label htmlFor="date">תאריך:</label>
               <input
                 min={getCurrentDate()}
                 type="date"
@@ -141,7 +134,7 @@ function CreateEvent(props) {
               />
             </div>
             <div className={classes.wrap}>
-              <label htmlFor="location">Location:</label>
+              <label htmlFor="location">מיקום:</label>
               <input
                 type="text"
                 id="input"
@@ -151,7 +144,7 @@ function CreateEvent(props) {
               />
             </div>
             <div className={classes.wrap}>
-              <label htmlFor="costumerName">Bride & Groom names:</label>
+              <label htmlFor="costumerName">שמות החתן והכלה:</label>
 
               <input
                 type="text"
@@ -163,32 +156,32 @@ function CreateEvent(props) {
             </div>
 
             <div className={classes.wrap}>
-              <label> the event is closed?:</label>
+              <label> הארוע סגור/משוריין:</label>
               <div className={classes.radioDiv}>
                 <div className={classes.radioInput}>
-                  <label htmlFor="closed">closed</label>
+                  <label htmlFor="closed">סגור</label>
                   <input
                     type="radio"
                     id="closed"
                     name="isClosed"
-                    value="closed"
+                    value="סגור"
                     onChange={handleChange}
                   />
                 </div>
                 <div className={classes.radioInput}>
-                  <label htmlFor="reserved">reserved</label>
+                  <label htmlFor="reserved">משוריין</label>
                   <input
                     type="radio"
                     id="reserved"
                     name="isClosed"
-                    value="reserved"
+                    value="משוריין"
                     onChange={handleChange}
                   />
                 </div>
               </div>
             </div>
             <div className={classes.wrap}>
-              <label> Manager remarks :</label>
+              <label> הערות:</label>
               <textarea
                 name="managerRemarks"
                 cols="40"
@@ -205,14 +198,14 @@ function CreateEvent(props) {
                     setIsDetailsShowen(!isDetailsShowen);
                   }}
                 >
-                  show details
+                  לפרטים נוספים
                 </button>
               </div>
             )}
             {isDetailsShowen && (
               <div>
                 <div className={classes.wrap}>
-                  <label htmlFor="amountInvited">Amount Invited:</label>
+                  <label htmlFor="amountInvited">מס' מוזמנים:</label>
 
                   <input
                     type="number"
@@ -223,7 +216,7 @@ function CreateEvent(props) {
                   />
                 </div>
                 <div className={classes.wrap}>
-                  <label htmlFor="balanceHour">Balance hour:</label>
+                  <label htmlFor="balanceHour">שעת הבאלאנס:</label>
 
                   <input
                     type="time"
@@ -235,7 +228,7 @@ function CreateEvent(props) {
                 </div>
                 <div className={classes.wrap}>
                   <label htmlFor="receptionMusicHour">
-                    Reception Music start hour:
+                    שעת מוזיקה בקבלת פנים:
                   </label>
 
                   <input
@@ -248,7 +241,7 @@ function CreateEvent(props) {
                 </div>
                 <div className={classes.wrap}>
                   <label htmlFor="receptionMusicType">
-                    Reception music type:
+                    סגנון המוזיקה בקבלת פנים:
                   </label>
 
                   <input
@@ -260,7 +253,7 @@ function CreateEvent(props) {
                   />
                 </div>
                 <div className={classes.wrap}>
-                  <label htmlFor="brideChairHour">Bride chair hour:</label>
+                  <label htmlFor="brideChairHour">שעת כסא כלה:</label>
 
                   <input
                     type="time"
@@ -271,7 +264,7 @@ function CreateEvent(props) {
                   />
                 </div>
                 <div className={classes.wrap}>
-                  <label htmlFor="chupaHour">Chupa Hour:</label>
+                  <label htmlFor="chupaHour">שעת החופה:</label>
 
                   <input
                     type="time"
@@ -282,7 +275,7 @@ function CreateEvent(props) {
                   />
                 </div>
                 <div className={classes.wrap}>
-                  <label htmlFor="hinumaCoverSong">Hinuma cover song:</label>
+                  <label htmlFor="hinumaCoverSong">שיר בכיסוי הינומה:</label>
 
                   <input
                     type="text"
@@ -295,7 +288,7 @@ function CreateEvent(props) {
 
                 <div className={classes.wrap}>
                   <label htmlFor="firstDancingRoundDuration">
-                    First dancing round duration(minutes):
+                    משך זמן סבב ריקודים ראשון (דקות):
                   </label>
 
                   <input
@@ -308,7 +301,7 @@ function CreateEvent(props) {
                 </div>
                 <div className={classes.wrap}>
                   <label htmlFor="firstDancingRoundMusicType">
-                    First dancing round music type:
+                    סגנון המוזיקה בסבב ריקודים ראשון:
                   </label>
 
                   <input
@@ -321,7 +314,7 @@ function CreateEvent(props) {
                 </div>
                 <div className={classes.wrap}>
                   <label htmlFor="secondDancingRoundDuration">
-                    Second dancing round duration(minutes):
+                    משך זמן סבב ריקודים שני (דקות):
                   </label>
 
                   <input
@@ -334,7 +327,7 @@ function CreateEvent(props) {
                 </div>
                 <div className={classes.wrap}>
                   <label htmlFor="secondDancingRoundMusicType">
-                    Second dancing round music type:
+                    סגנון המוזיקה בסבב ריקודים שני:
                   </label>
 
                   <input
@@ -353,7 +346,7 @@ function CreateEvent(props) {
             <div>
               <div className={classes.column2}>
                 <div className={classes.wrap}>
-                  <label htmlFor="brideBlessSong">Bride bless song:</label>
+                  <label htmlFor="brideBlessSong">שיר ברכת כלה:</label>
 
                   <input
                     type="text"
@@ -365,7 +358,7 @@ function CreateEvent(props) {
                 </div>
                 <div className={classes.wrap}>
                   <label htmlFor="chupaEnteranceSong">
-                    Chupa Bride enterance song:
+                    שיר כניסת כלה לחופה:
                   </label>
 
                   <input
@@ -378,7 +371,7 @@ function CreateEvent(props) {
                 </div>
                 <div className={classes.wrap}>
                   <label htmlFor="breakingGlassTiming">
-                    Breaking glass timing:
+                    תזמון שבירת הכוס (אמצע/סוף אם אשכחך)
                   </label>
 
                   <input
@@ -391,9 +384,7 @@ function CreateEvent(props) {
                 </div>
 
                 <div className={classes.wrap}>
-                  <label htmlFor="breakingGlassSong">
-                    Breaking glass song:
-                  </label>
+                  <label htmlFor="breakingGlassSong">:שיר שבירת הכוס</label>
                   <input
                     type="text"
                     id="input"
@@ -404,7 +395,7 @@ function CreateEvent(props) {
                 </div>
                 <div className={classes.wrap}>
                   <label htmlFor="brideFriendsCharacter">
-                    Bride friends character:
+                    סגנון חברות הכלה:
                   </label>
                   <input
                     type="text"
@@ -416,7 +407,7 @@ function CreateEvent(props) {
                 </div>
                 <div className={classes.wrap}>
                   <label htmlFor="groomFriendsCharacter">
-                    Groom friends character:
+                    סגנון חברי החתן:
                   </label>
                   <input
                     type="text"
@@ -427,7 +418,7 @@ function CreateEvent(props) {
                   />
                 </div>
                 <div className={classes.wrap}>
-                  <label htmlFor="dressCode">Dress code:</label>
+                  <label htmlFor="dressCode">קוד לבוש ללהקה:</label>
 
                   <input
                     type="text"
@@ -438,7 +429,7 @@ function CreateEvent(props) {
                   />
                 </div>
                 <div className={classes.wrap}>
-                  <label htmlFor="contactManName">Contact man name:</label>
+                  <label htmlFor="contactManName">איש הקשר:</label>
 
                   <input
                     type="text"
@@ -450,7 +441,7 @@ function CreateEvent(props) {
                 </div>
                 <div className={classes.wrap}>
                   <label htmlFor="contactManPhone">
-                    Contact man phone number:
+                    מס' טלפון של איש הקשר:
                   </label>
 
                   <input
@@ -463,10 +454,10 @@ function CreateEvent(props) {
                 </div>
 
                 <div className={classes.wrap}>
-                  <label> Im Eshkachech:</label>
+                  <label> אם אשכחך:</label>
                   <div className={classes.radioDiv}>
                     <div className={classes.radioInput}>
-                      <label htmlFor="shweki"> Shweki</label>
+                      <label htmlFor="shweki"> שוואקי</label>
                       <input
                         type="radio"
                         id="shweki"
@@ -476,7 +467,7 @@ function CreateEvent(props) {
                       />
                     </div>
                     <div className={classes.radioInput}>
-                      <label htmlFor="karlibach"> Karlibach</label>
+                      <label htmlFor="karlibach"> קרליבך</label>
                       <input
                         type="radio"
                         id="karlibach"
@@ -486,7 +477,7 @@ function CreateEvent(props) {
                       />
                     </div>
                     <div className={classes.radioInput}>
-                      <label htmlFor="other"> other</label>
+                      <label htmlFor="other"> אחר</label>
                       <input
                         type="radio"
                         id="other"
@@ -498,7 +489,7 @@ function CreateEvent(props) {
                   </div>
                 </div>
                 <div className={classes.wrap}>
-                  <label htmlFor="isDj">there is Dj?</label>
+                  <label htmlFor="isDj">יש די ג'יי?</label>
 
                   <input
                     className={classes.isDj}
@@ -510,7 +501,7 @@ function CreateEvent(props) {
                   />
                 </div>
                 <div className={classes.wrap}>
-                  <label>Price in Shekels:</label>
+                  <label>מחיר בשקלים:</label>
                   <input
                     type="number"
                     id="input"
@@ -538,7 +529,7 @@ function CreateEvent(props) {
                 setIsDetailsShowen(!isDetailsShowen);
               }}
             >
-              close details
+              סגור
             </button>
           )}
           <button
@@ -547,7 +538,7 @@ function CreateEvent(props) {
             className={classes.addButton}
             onClick={submitEvent}
           >
-            <strong>Add</strong>
+            <strong>הוסף ארוע</strong>
           </button>
         </div>
       </form>
