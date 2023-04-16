@@ -11,6 +11,9 @@ function Event(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [editIsShowen, setEditIsShowen] = useState(false);
   const [isTheDatePass, setIsTheDatePass] = useState(false);
+  const [managerInfoIsOpen, setManagerInfoIsOpen] = useState(false);
+  const [showShareMessage, setShowShareMessage] = useState(false);
+
   const onCloseEditEvent = () => {
     setEditIsShowen(false);
   };
@@ -77,6 +80,12 @@ function Event(props) {
   //   "Price in Shekels:",
   //   " Manager remarks:",
   // ];
+  const showManagerData = () => {
+    setManagerInfoIsOpen(!managerInfoIsOpen);
+  };
+  const onChangeShowShareMessage = () => {
+    setShowShareMessage(!showShareMessage);
+  };
 
   return (
     <div className={classes.event}>
@@ -340,7 +349,14 @@ function Event(props) {
                   </p>
                 </div>
               )}
-              {props.givenPrice && (
+              <div className={classes.center}>
+                {props.givenPrice && (
+                  <button className={classes.button1} onClick={showManagerData}>
+                    מידע נוסף
+                  </button>
+                )}
+              </div>
+              {props.givenPrice && managerInfoIsOpen && (
                 <div className={classes.Ewrap}>
                   <label>מחיר בשקלים:</label>
                   <p>
@@ -348,7 +364,7 @@ function Event(props) {
                   </p>
                 </div>
               )}
-              {props.managerRemarks && (
+              {props.managerRemarks && managerInfoIsOpen && (
                 <div className={classes.Ewrap}>
                   <label>הערות:</label>
                   <p>
@@ -380,7 +396,10 @@ function Event(props) {
                 </div>
 
                 <div className={classes.button1} onClick={shareData}>
-                  <div className={classes.share}>
+                  <div
+                    className={classes.share}
+                    onClick={onChangeShowShareMessage}
+                  >
                     <ShareIcon />
                   </div>
                 </div>
@@ -397,6 +416,12 @@ function Event(props) {
             </div>
           </div>
           {/* </div> */}
+          {showShareMessage && (
+            <p className={classes.shareMessage}>
+              ע"מ לשתף את המידע -צלם את המסך ושתף או העתק את הטקטס המבוקש והדבק
+              במקום הרצוי.
+            </p>
+          )}
         </Modal>
       )}
     </div>

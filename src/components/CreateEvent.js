@@ -533,9 +533,9 @@ function CreateEvent(props) {
             </button>
           )}
           <button
-            fontSize="large"
+            // fontSize="large"
+            className={classes.showButton}
             disabled={!isSubmitAllowed}
-            className={classes.addButton}
             onClick={submitEvent}
           >
             <strong>הוסף ארוע</strong>

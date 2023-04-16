@@ -168,7 +168,7 @@ const EditEvent = (props) => {
               <div className={classes.wrap}>
                 <label> הארוע סגור/משוריין:</label>
 
-                <div>
+                <div className={classes.radioInput}>
                   <label htmlFor="closed">
                     סגור
                     <input
@@ -180,7 +180,7 @@ const EditEvent = (props) => {
                     />
                   </label>
                 </div>
-                <div>
+                <div className={classes.radioInput}>
                   <label htmlFor="reserved">
                     משוריין
                     <input
@@ -432,7 +432,7 @@ const EditEvent = (props) => {
               <div className={classes.wrap}>
                 <label> אם אשכחך:</label>
 
-                <div>
+                <div className={classes.radioInput}>
                   <label htmlFor="shweki">
                     {" "}
                     שוואקי
@@ -445,7 +445,7 @@ const EditEvent = (props) => {
                     />
                   </label>
                 </div>
-                <div>
+                <div className={classes.radioInput}>
                   <label htmlFor="karlibach">
                     קרליבך
                     <input
@@ -457,7 +457,7 @@ const EditEvent = (props) => {
                     />
                   </label>
                 </div>
-                <div>
+                <div className={classes.radioInput}>
                   <label htmlFor="other">
                     אחר
                     <input

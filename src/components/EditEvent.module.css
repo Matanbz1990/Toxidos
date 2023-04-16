@@ -72,6 +72,12 @@ form.editEvent button:hover {
   justify-content: space-between;
   align-items: center;
 }
+.radioInput {
+  display: flex;
+  justify-content: space-between;
+  padding: auto;
+  margin-top: 5px;
+}
 
 @media (max-width: 700px) {
   .wrap {
@@ -83,6 +89,10 @@ form.editEvent button:hover {
     margin: auto;
   }
   .wrap label {
+    margin: auto;
+  }
+
+  .editEvent .column2 label {
     margin: auto;
   }
 }

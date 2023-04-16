@@ -10,7 +10,7 @@
 }
 form.createEvent {
   margin: auto;
-  width: 40%;
+  width: 30%;
   background-color: rgb(36, 34, 34);
   border-radius: 10px;
   padding: 20px;
@@ -86,10 +86,8 @@ textarea {
 }
 .radioInput {
   display: flex;
-  justify-content: space-around;
-  margin: 0;
+  justify-content: space-between;
   padding: auto;
-  width: 80%;
   margin-top: 5px;
 }
 .radioInput input {
@@ -107,6 +105,8 @@ textarea {
 }
 .addButton {
   background-color: rgb(240, 201, 76);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
   color: rgb(10, 8, 1);
   border-radius: 50px;
   width: 2.5rem;
@@ -141,6 +141,7 @@ textarea {
   .container {
     flex-direction: column;
   }
+
   .createEvent input {
     max-width: 300px;
     min-width: 250px;
@@ -156,17 +157,15 @@ textarea {
   .createEvent input {
     max-width: 200px;
   }
+  form.createEvent {
+    width: 60%;
+  }
 }
 @media (max-width: 870px) {
   .wrap {
     flex-direction: column;
   }
-  .radioDiv {
-    /* margin: auto; */
-    /* align-items: baseline;
-    align-content: baseline; */
-    /* justify-content: space-between; */
-  }
+
   .radioInput {
     justify-content: space-between;
   }
@@ -180,11 +179,12 @@ textarea {
     margin-top: 5px;
     font-size: medium;
   }
+
   .createEvent label {
     font-size: medium;
     margin-top: 3px;
     text-align: center;
-    margin: auto;
+    /* margin: 0; */
   }
   .createEventsButtons {
     flex-direction: column;

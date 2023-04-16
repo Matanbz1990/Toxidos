@@ -119,6 +119,10 @@ p {
   color: black;
   border-radius: 7px;
 }
+.shareMessage {
+  text-align: center;
+  /* width: 40%; */
+}
 
 @media (max-width: 1200px) {
   .prevContainer {
@@ -159,6 +163,13 @@ p {
     /* width: 30%; */
     margin-left: 10%;
   }
+  .center {
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
   .Ewrap {
     flex-direction: column;
   }
@@ -172,6 +183,7 @@ p {
     margin: auto;
     margin-top: 10px;
   }
+
   .closeEditAndDelete {
     flex-direction: column;
   }
