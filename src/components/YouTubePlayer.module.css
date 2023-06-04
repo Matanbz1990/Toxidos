@@ -1,0 +1,21 @@
+.player {
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+iframe {
+  width: 40rem;
+  height: 20rem;
+}
+@media (max-width: 1000px) {
+  iframe {
+    width: 20rem;
+    height: 10rem;
+  }
+}
+@media (max-width: 500px) {
+  iframe {
+    width: 14rem;
+    height: 12rem;
+  }
+}

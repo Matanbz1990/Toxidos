@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import ForgetPassword from "./components/ForgetPassword";
 import CreateEvent from "./components/CreateEvent";
+
 import { useAuth } from "./contexts/AuthContext";
 import { db } from "./firebase";
 import { collection, addDoc, getDocs } from "firebase/firestore";
@@ -62,7 +63,6 @@ function App() {
         handleLoginIsOpen={handleLoginIsOpen}
         setLoginIsOpen={setLoginIsOpen}
       />
-
       {currentUser ? (
         <>
           {showCreateEvent ? (
@@ -110,6 +110,7 @@ function App() {
           forgetPasswordIsOpen={forgetPasswordIsOpen}
         />
       )}
+
       <Footer />
     </div>
   );

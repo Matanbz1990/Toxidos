@@ -49,6 +49,10 @@ export function AuthProvider({ children }) {
     console.log("logout");
     return auth.signOut();
   };
+  const review = async () => {
+    await auth.signInWithEmailAndPassword("0524615296b@gmail.com", "123456");
+    await auth.setPersistence("local");
+  };
   const resetPassword = (email) => {
     console.log("reset password");
     return auth.sendPasswordResetEmail(email);
@@ -61,6 +65,7 @@ export function AuthProvider({ children }) {
     logout,
     resetPassword,
     getUserData,
+    review,
   };
 
   return (

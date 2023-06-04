@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./Home.module.css";
+import YouTubePlayer from "./YouTubePlayer";
+
 import HomeExample from "./HomeExample";
 export default function Home(props) {
   const list1 = [
@@ -14,7 +16,7 @@ export default function Home(props) {
     "ריכוז כל המידע במקום אחד",
   ];
 
-  const list3 = ["נתמך על ידי אנדרואיד וIOS "];
+  const list3 = ["נתמך על ידי אנדרואיד וIOS ", "חודש ניסיון חינם!"];
   return (
     <div className={classes.home}>
       <div className={classes.text1}>
@@ -37,6 +39,8 @@ export default function Home(props) {
           <HomeExample text={list3} className={classes.detail} />
         </div>
         <div className={classes.buttonContainer}>
+          <YouTubePlayer />
+
           <button onClick={props.handleSignUpIsOpen}>בואו נתחיל!</button>
         </div>
       </div>

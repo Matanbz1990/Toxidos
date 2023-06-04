@@ -9,7 +9,7 @@ import { useState } from "react";
 function Header(props) {
   const [error, setError] = useState("");
   const [bandName, setBandName] = useState("");
-  const { currentUser, logout } = useAuth();
+  const { currentUser, logout, review } = useAuth();
 
   useEffect(() => {
     if (currentUser) {
@@ -57,6 +57,9 @@ function Header(props) {
       {/* </div> */}
       {!currentUser && (
         <div className={classes.container3}>
+          <button type="submit" onClick={review}>
+            Try it
+          </button>
           <button type="submit" onClick={openLogin}>
             Log in
           </button>
